@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>365cm</title>
     {% load static %}
     <!-- OG Meta Tags to improve the way the post looks when you share the page on Facebook, Twitter, LinkedIn -->
@@ -36,7 +37,12 @@
     <link rel="icon" href="{% static 'images/favicon.png' %}" />
   </head>
   <body>
-    {% block content %} {% endblock %}
+    {% include 'shared/navbar.html' %}
+    {% block content %} 
+    
+
+    {% endblock %}
+    {% include 'shared/footer.html' %}
 
     <!-- Scripts -->
     <script src="/static/js/bootstrap.min.js"></script>
