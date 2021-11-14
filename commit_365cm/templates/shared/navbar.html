@@ -1,4 +1,14 @@
-  <!-- Navigation -->
+<!-- Navigation -->
+<style>
+    a:hover{
+        text-decoration: none;
+    }
+    .titlename{
+        font-weight: 700;
+        font-size: 40px;
+    }
+
+</style>
   <nav
     id="navbarExample"
     class="navbar navbar-expand-lg fixed-top navbar-light"
@@ -7,9 +17,13 @@
     <div class="container">
       <!-- Image Logo --> 
       <!-- 이미지로고 삽입  -->
-      <a class="navbar-brand logo-image" href="{% url 'main:showmain' %}">
+      <!-- <a class="navbar-brand logo-image" href="{% url 'main:showmain' %}">
         <img src="static/images/logo.svg" alt="alternative" />
-      </a>
+      </a> -->
+      <a class="navbar-brand h1" href="{% url 'main:showmain' %}">
+        <i class="fas fa-laptop-medical fa-2x"></i>
+        <span class=" text-dark h4 titlename">365</span> <span class="text-primary h4 titlename">cm</span>
+    </a>
 
       <!-- Text Logo - Use this if you don't have a graphic logo -->
       <!-- <a class="navbar-brand logo-text" href="index.html">Ioniq</a> -->
@@ -29,21 +43,23 @@
         class="navbar-collapse offcanvas-collapse"
         id="navbarsExampleDefault"
       >
+
+      
         <ul class="navbar-nav ms-auto navbar-nav-scroll">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#header">
-              Home
+              FAQ
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#features">Features</a>
+            <a class="nav-link" href="#features">뉴스</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#details">Details</a>
+            <a class="nav-link" href="#details">테스트</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#pricing">Pricing</a>
-          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="#pricing">기부</a>
+          </li> -->
           <li class="nav-item dropdown">
             <a
               class="nav-link dropdown-toggle"
@@ -52,24 +68,18 @@
               data-bs-toggle="dropdown"
               aria-expanded="false"
             >
-              Drop
+              기부
             </a>
             <ul class="dropdown-menu" aria-labelledby="dropdown01">
               <li>
                 <a class="dropdown-item" href="article.html">
-                  Article Details
+                  기부하기
                 </a>
               </li>
               <li><div class="dropdown-divider"></div></li>
               <li>
                 <a class="dropdown-item" href="terms.html">
-                  Terms Conditions
-                </a>
-              </li>
-              <li><div class="dropdown-divider"></div></li>
-              <li>
-                <a class="dropdown-item" href="privacy.html">
-                  Privacy Policy
+                  기부랭킹
                 </a>
               </li>
             </ul>
