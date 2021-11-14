@@ -1,0 +1,307 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% load static %}
+<!-- Questions -->
+  <div class="accordion-1">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h2 class="h2-heading">FAQ : 자주 묻는 질문</h2>
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="accordion" id="accordionExample">
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingOne">
+                <button
+                  class="accordion-button"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseOne"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  몇 cm 길이의 모발부터 기부가 가능한가요?
+                </button>
+              </h2>
+              <div
+                id="collapseOne"
+                class="accordion-collapse collapse show"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  보통 25cm 이상 길이의 모발부터 기부를 권장합니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTwo">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="false"
+                  aria-controls="collapseTwo"
+                >
+                  모발 길이가 25cm가 되지 않아도 모발 기부가 가능한가요?
+                </button>
+              </h2>
+              <div
+                id="collapseTwo"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTwo"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  머리를 묶었을 때, 가장 짦은 머리의 길이가 25cm이어야 가발 제작이 가능합니다.
+                  모발 길이 25cm가 되지 않으실 경우 조금 더 머리를 기르신 후 기부하는 것을 추천드립니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingThree">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseThree"
+                  aria-expanded="false"
+                  aria-controls="collapseThree"
+                >
+                  염색이나 파마를 했어도 괜찮나요?
+                </button>
+              </h2>
+              <div
+                id="collapseThree"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingThree"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  일반적으로 염색이나 파마를 한 모발은 손상으로 가발 제작이 어렵습니다. 
+                  그러나 손상된 모발이라도 최대한 재가공하여 사용하므로 보내주셔도 괜찮습니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFour">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFour"
+                  aria-expanded="true"
+                  aria-controls="collapseFour"
+                >
+                  몇 명의 모발이 하나의 가발로 제작되나요?
+                </button>
+              </h2>
+              <div
+                id="collapseFour"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFour"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  가발 하나를 만들기 위해서는 약 2만 가닥의 머리카락이 필요한데, 
+                  살균을 위해 모발을 산처리하는 과정에서 손상된 모발이 끊어지거나 사라집니다.
+                  따라서 약 200~300명분의 모발이 모여야 가발 하나를 만들 수 있습니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingFive">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseFive"
+                  aria-expanded="true"
+                  aria-controls="collapseFive"
+                >
+                  제가 보낸 모발이 가발로 제작되기까지 얼마나 시간이 소요되나요?
+                </button>
+              </h2>
+              <div
+                id="collapseFive"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingFive"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  얼마나 적합한 모발이 빠르게 수급되는지에 따라 다릅니다.
+                  최근 머리카락 기부를 받는 기관이 줄어들어 모발 수급이 원활하게 이루어지지 않는 상태입니다. 
+                  따라서 200명분의 머리카락을 수급하는 시기가 매번 다르므로 정확한 소요시간을 특정할 수 없습니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSix">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSix"
+                  aria-expanded="true"
+                  aria-controls="collapseSix"
+                >
+                  모발 기부 절차는 어떻게 되나요?
+                </button>
+              </h2>
+              <div
+                id="collapseSix"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingSix"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  1. 머리카락을 묶은 상태에서 25cm 길이가 되는지 확인하고 자릅니다.<br>
+                  2. 페이지의 "기부하기" 탭에서 모발 정보 및 인적사항을 입력하고 기부 신청서를 접수합니다.<br>
+                  3. 머리카락을 손상되지 않도록 밀봉한 후 접수처로 발송합니다.<br>
+                  4. 모발이 접수처에 수령되면 기부자에게 알림이 전송됩니다.<br>
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingSeven">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseSeven"
+                  aria-expanded="true"
+                  aria-controls="collapseSeven"
+                >
+                  접수처 주소는 어떻게 되나요?
+                </button>
+              </h2>
+              <div
+                id="collapseSeven"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingSeven"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  접수처 : 서울시 중구 장충동 2가 193-246 영일빌라 202호<br>
+                  받는 사람 : 365cm
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingEight">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseEight"
+                  aria-expanded="true"
+                  aria-controls="collapseEight"
+                >
+                  모발 기부 시 혜택은 어떻게 되나요?
+                </button>
+              </h2>
+              <div
+                id="collapseEight"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingEight"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  기부자의 모발 포함 365cm의 모발이 모이면 모든 기부자들에게 청담 럭셔리헤어 스파 1회 무료 이용권을 제공합니다.<br>
+                  또한 동국대학교 학생임을 인증시 드림패스 마일리지 50점을 부여하고,<br>
+                  동국대학교 생활협동조합에서 제공하는 다향관 서적 10% 할인쿠폰을 제공합니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingNine">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseNine"
+                  aria-expanded="true"
+                  aria-controls="collapseNine"
+                >
+                  모발이 길면 길 수록 좋은 점이 있나요?
+                </button>
+              </h2>
+              <div
+                id="collapseNine"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingNine"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  그렇습니다. 실제로 가발을 만들 때 모발 한 쪽을 바늘로 꿰어 가발에 심는 구조이므로 총길이가 줄어들기 때문에,<br>
+                  모발이 길면 길 수록 가발 제작이 용이합니다.<br>
+                  또한 365cm는 매 분기마다 기부자 중 모발이 가장 긴 top1 기부자를 선정하여 선물 키트를 전달합니다.<br>
+                  놓치지 마시고 혜택에 도전하시길 바랍니다:)
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+            <!-- Accordion Item -->
+            <div class="accordion-item">
+              <h2 class="accordion-header" id="headingTen">
+                <button
+                  class="accordion-button collapsed"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTen"
+                  aria-expanded="true"
+                  aria-controls="collapseTen"
+                >
+                  기부 인증서를 받을 수 있나요?
+                </button>
+              </h2>
+              <div
+                id="collapseTen"
+                class="accordion-collapse collapse"
+                aria-labelledby="headingTen"
+                data-bs-parent="#accordionExample"
+              >
+                <div class="accordion-body">
+                  접수처에서 모발 수령이 완료되면, 365cm에서 모바일 인증서를 pdf 파일로 발급하여 회원님의 이메일로 전송합니다.<br>
+                  인증서 수정 요청 및 재발급을 원하시면 페이지 하단의 대표자 연락처로 연락 바랍니다.
+                </div>
+              </div>
+            </div>
+            <!-- end of accordion-item -->
+          </div>
+          <!-- end of accordion -->
+        </div>
+        <!-- end of col -->
+      </div>
+      <!-- end of row -->
+    </div>
+    <!-- end of container -->
+  </div>
+  <!-- end of accordion-1 -->
+  <!-- end of questions -->
+{% endblock %}
