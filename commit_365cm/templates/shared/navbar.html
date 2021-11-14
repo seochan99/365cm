@@ -22,7 +22,7 @@
       </a> -->
       <a class="navbar-brand h1" href="{% url 'main:showmain' %}">
         <i class="fas fa-laptop-medical fa-2x"></i>
-        <span class=" text-dark h4 titlename">365</span> <span class="text-primary h4 titlename">cm</span>
+        <span class=" text-dark h4 titlename">365</span> <span class="h4 titlename" style="color: rgb(255, 187, 110);">cm</span>
     </a>
 
       <!-- Text Logo - Use this if you don't have a graphic logo -->
@@ -85,8 +85,16 @@
             </ul>
           </li>
         </ul>
+    </ul>
+</div>
+
         <span class="nav-item">
-          <a class="btn-outline-sm" href="log-in.html">Log in</a>
+        {% if user.is_authenticated %}
+        <a class="btn-outline-sm" href="{% url 'account_login' %}">로그아웃</a>
+        {% else %}
+          <a class="btn-outline-sm" href="{% url 'account_login' %}">로그인</a>
+          <a class="btn-outline-sm" href="{% url 'account_signup' %}">회원가입</a>
+        {% endif %}
         </span>
       </div>
       <!-- end of navbar-collapse -->
