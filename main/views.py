@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import *
+from django.db.models import Count
 
 # Create your views here.
 def showmain(request):
@@ -15,7 +16,9 @@ def news(request):
 def news_detail(request,id):
     news = get_object_or_404(News, pk = id)
     comments = news.comments.all().order_by('-created_at')
-    return render(request, 'main/news_detail.html',{'news':news, 'comments': comments})
+    cnt = list(Comments.objects.values('news').annotate(Count('news')))[0]
+    cnt = cnt['news__count']
+    return render(request, 'main/news_detail.html',{'news':news, 'comments': comments, 'cnt': cnt})
 
 def create_comment(request, id):
     if request.method == "POST":
