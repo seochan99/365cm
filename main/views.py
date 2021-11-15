@@ -14,4 +14,31 @@ def news(request):
 
 def news_detail(request,id):
     news = get_object_or_404(News, pk = id)
-    return render(request, 'main/news_detail.html',{'news':news})
+    comments = news.comments.all().order_by('-created_at')
+    return render(request, 'main/news_detail.html',{'news':news, 'comments': comments})
+
+def create_comment(request, id):
+    if request.method == "POST":
+        news = get_object_or_404(News, pk=id)
+        current_user = request.user
+        content = request.POST.get('content')
+        Comments.objects.create(news=news, content=content, writer=current_user)
+    return redirect('main:news_detail', id)
+
+def update_comment(request, news_id, comment_id):
+    news = get_object_or_404(News, pk=news_id)
+    comment = get_object_or_404(Comments, pk=comment_id)
+    if request.method=="POST":
+        comment.content = request.POST['content']
+        comment.save()
+        return redirect('main:news_detail', news.pk)
+    context = {
+        'news': news,
+        'comment': comment
+    }
+    return render(request, 'main/comments_update.html', context)
+
+def delete_comment(request, news_id, comment_id):
+    comment = get_object_or_404(Comments, pk=comment_id)
+    comment.delete()
+    return redirect('main:news_detail', news_id)

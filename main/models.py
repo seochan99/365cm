@@ -15,3 +15,10 @@ class News(models.Model):
 
     def summary(self):
         return self.body[:100]
+
+class Comments(models.Model):
+    news = models.ForeignKey(News, on_delete=models.CASCADE, related_name='comments')
+    content = models.TextField()
+    writer = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

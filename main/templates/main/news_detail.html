@@ -20,6 +20,30 @@
             </div>
         </div>
         <!-- 뉴스 끝 -->
+        <div class="container">
+            <div class="row">
+                <h4>Comments <hr /></h4>
+                {% if user.is_authenticated %}
+                <form action="{% url 'main:create_comment' news.id %}" method="post">
+                    {%csrf_token%}
+                    <textarea class="form-control col-lg-8" name="content" id="content" rows="3"></textarea>
+                    <input class="btn btn-primary col-lg-12" type="submit" value="작성" />
+                </form>
+                {% else %}
+                {% endif %}
+            </div>
+            {% if comments %}
+            <div>
+                {% for comment in comments %}
+                <div>
+                    <div>{{comment.content}}</div>
+                    <div>{{comment.writer}}</div>
+                </div>
+                {% endfor %}
+            </div>
+            {% else %}
+            {% endif %}
+        </div>
     </div>
 </div>
 {% endblock %}
