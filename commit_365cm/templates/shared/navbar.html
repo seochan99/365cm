@@ -84,6 +84,11 @@
               </li>
             </ul>
           </li>
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'mypage:mypage' request.user.id %}">마이페이지</a>
+          </li>
+          {% endif %}
         </ul>
     </ul>
 </div>

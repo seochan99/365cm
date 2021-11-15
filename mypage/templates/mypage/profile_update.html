@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    /* body{
+        background-image: url(../../static/images/배경사진.jpg);
+    } */
+    input{
+        background-color:rgb(108, 128, 216); 
+        color: whitesmoke;
+        border: none;
+    }
+
+</style>
+<h1 style="margin-top: 150px; text-align: center;">{{user.username}} 프로필 업데이트</h1>
+<br>
+    {% if error_msg %}
+    <div class="alert alert-warning alert-dismissible" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <strong>Error</strong> {{error_msg}}
+    </div>
+    {% endif %}
+
+    <form action="" method="post" enctype="multipart/form-data" style="text-align: center; color: rgb(255, 255, 255); font-weight: 500; ">{% csrf_token %}
+    {{ user_form.as_p }}
+    {{ profile_form.as_p }}
+    <input type="submit" value="Update" />
+    </form>
+</p>
+{% endblock %}
