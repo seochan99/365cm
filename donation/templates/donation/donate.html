@@ -2,10 +2,87 @@
 {% block content %}
 
 {% load static %}
+<style>
+    .first_a{
+        border: 2px solid none;
+        background-color: rgba(253, 196, 142, 0.774);
+        padding: 4px 7px;        
+        border-radius: 10px;
+        text-decoration: none;
+        color: whitesmoke;
+
+    }
+    a:hover{
+        color: black;
+    }
+    .postImage{
+        width: 300px;
+        border-radius: 20px;
+    }
+
+    .end_a
+    {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+    }
+    button{
+      background: rgba(255, 197, 142, 0.774);
+      color:#fff;
+      border:none;
+      position:relative;
+      height:40px;
+      font-size:1em;
+      padding:0 20px;
+      cursor:pointer;
+      transition:800ms ease all;
+      outline:none;
+    }
+    button:hover{
+      background:rgba(255, 255, 255, 0.774);
+      color:rgba(255, 161, 73, 0.774);
+    }
+    button:before,button:after{
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      height:2px;
+      width:0;
+      background: rgba(255, 206, 160, 0.774);
+      transition:400ms ease all;
+    }
+    button:after{
+      right:inherit;
+      top:inherit;
+      left:0;
+      bottom:0;
+    }
+    button:hover:before,button:hover:after{
+      width:100%;
+      transition:800ms ease all;
+    }
+    .titleBox{
+        border-radius: 1em; 
+        padding: 0.6em 1em; 
+        background: #ffffff; 
+        box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+        margin-left: 5px;
+    }
+    .bodyBox{
+        border-radius: 1em; 
+        padding: 0.8em 1em; 
+        background: #ffffff; 
+        box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+        margin-left: 5px;
+    }
+</style>
+
 
 <div class="accordion-1">
     <div class="col-lg-12">
-        <h2 class="h2-heading">기부list</h2>
+        <h2 class="h2-heading">기부 List</h2>
+        <hr>
+        <section style="margin: 20px; margin-left: 35px; margin-top: 30px;">
         {% for donation in donations %}
         <div>
             <h3>{{donation.title}}</h3>
@@ -13,11 +90,13 @@
             {{donation.summary}}<br>
             <a href="{%url 'donation:donate_detail' donation.id %}">...more</a>
         </div>
+        <hr>
         {%endfor%}
 
         {%if user.is_authenticated%}
-            <h3><a href="{%url 'donation:donate_new'%}">기부신청하기</a></h3>
+        <button><a class="end_a" href="{%url 'donation:donate_new'%}">기부신청하기</a></button>
         {%else%}
             <br><h3>로그인 후 기부 가능합니다.</h3>
         {%endif%}
+    </section>
 {% endblock %}

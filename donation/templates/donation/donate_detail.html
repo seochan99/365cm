@@ -9,7 +9,7 @@
          padding: 4px 7px;        
          border-radius: 10px;
          text-decoration: none;
-         color: whitesmoke;
+         color: rgb(0, 0, 0);
  
      }
      a:hover{
@@ -23,7 +23,7 @@
      .end_a
      {
          text-decoration: none;
-         color: whitesmoke;
+         color: rgb(0, 0, 0);
      }
      button{
        background: rgba(255, 197, 142, 0.774);
@@ -84,10 +84,11 @@
         
             <h2 class="titleBox">제목 : {{donation.title}}</h2>
             <br>
-            <h5 style="display: inline;">작성자 :</h5> <a class="first_a" href="{% url 'mypage:mypage' donation.writer.id %}">{{donation.writer}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+
+            <h5 style="display: inline; margin-left: 20px;">작성자 :</h5> <a class="first_a" href="{% url 'mypage:mypage' donation.writer.id %}">{{donation.writer}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
           <br>
-          <h5 style="display: inline;">날짜 :</h5> {{donation.pub_date}}<br>
-          <h5 style="display: inline;">기부할 머리길이 :</h5> {{donation.hair_length}}<br>
+          <h5 style="display: inline; margin-left: 20px;">날짜 :</h5> {{donation.pub_date}}<br>
+          <h5 style="display: inline; margin-left: 20px;">기부할 머리길이 :</h5> {{donation.hair_length}}cm<br>
            <hr>
            <div class="bodyBox">
                <h3>기부 정보</h3> {{donation.body}}
@@ -100,8 +101,11 @@
            <br>
 
            {%if user == donation.writer%}
-           <button><a class="end_a" href="{% url 'donation:donate_edit' donation.id%}">수정하기</a></button>
-           <button><a class="end_a" href="{% url 'donation:donate_delete' donation.id%}">삭제하기</a></button>
+           <div style="margin-left: 20px;">
+               <button><a class="end_a" href="{% url 'donation:donate_edit' donation.id%}">수정하기</a></button>
+               <button><a class="end_a" href="{% url 'donation:donate_delete' donation.id%}">삭제하기</a></button>
+           </div>
+           
            {%endif%}
            
           </section>
