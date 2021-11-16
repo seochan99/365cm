@@ -13,7 +13,7 @@
           <div class="wow fadeInUp" data-wow-delay="0.5s">
             <div class="logout-sec" >
               <form class="logout" method="POST" action="{% url 'account_logout' %}">
-                <p style="font-size: 30px;">현재 {{user}}로 로그인 되어있습니다.</p>
+                <p style="font-size: 32px; padding: 3px;">{{user}}로 로그인 되어있습니다.</p>
                 <p style="font-size: 20px;">로그아웃 하시겠습니까?</p>
                 <br>
                 {% csrf_token %} {{ form.as_p }}

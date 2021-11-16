@@ -4,6 +4,16 @@
 {% block content %}
 
 <!-- 배경테마 -->
+<header class="ex-header">
+  <div class="container">
+      <div class="row">
+          <div class="col-xl-10 offset-xl-1">
+              <h1 class="text-center">Log In</h1>
+          </div> <!-- end of col -->
+      </div> <!-- end of row -->
+  </div> <!-- end of container -->
+</header> <!-- end of ex-header -->
+
 <div class="hero-wrap js-fullheight">
   <div class="overlay"></div>
   <div id="particles-js"></div>
@@ -14,7 +24,7 @@
         <section style="background-size:100%; margin:200px">
           <div style="width:300px; margin:0 auto; ">
           <div data-wow-delay="0.5s">
-            <div >
+            <div style="margin-right: 137px;">
               <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %} 
                 <!-- 밑에 걸로 폼수정  -->
@@ -25,7 +35,7 @@
               </form>
             </div>
             <br>
-            <div>
+            <div style="margin-right: 110px;">
               <p>회원이 아니신가요? <a href="{% url 'account_signup' %}">회원가입</a></p>
             </div>
           </div>
