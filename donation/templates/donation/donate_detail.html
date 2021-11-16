@@ -2,13 +2,92 @@
 {% block content %}
 
 {% load static %}
-
+<style>
+     .first_a{
+         border: 2px solid none;
+         background-color: rgba(253, 196, 142, 0.774);
+         padding: 4px 7px;        
+         border-radius: 10px;
+         text-decoration: none;
+         color: whitesmoke;
+ 
+     }
+     a:hover{
+         color: black;
+     }
+     .postImage{
+         width: 300px;
+         border-radius: 20px;
+     }
+ 
+     .end_a
+     {
+         text-decoration: none;
+         color: whitesmoke;
+     }
+     button{
+       background: rgba(255, 206, 160, 0.774);;
+       color:#fff;
+       border:none;
+       position:relative;
+       height:40px;
+       font-size:1em;
+       padding:0 20px;
+       cursor:pointer;
+       transition:800ms ease all;
+       outline:none;
+     }
+     button:hover{
+       background:rgb(160, 174, 255);
+       color:rgba(255, 206, 160, 0.774);
+     }
+     button:before,button:after{
+       content:'';
+       position:absolute;
+       top:0;
+       right:0;
+       height:2px;
+       width:0;
+       background: rgba(255, 206, 160, 0.774);
+       transition:400ms ease all;
+     }
+     button:after{
+       right:inherit;
+       top:inherit;
+       left:0;
+       bottom:0;
+     }
+     button:hover:before,button:hover:after{
+       width:100%;
+       transition:800ms ease all;
+     }
+     .titleBox{
+         border-radius: 1em; 
+         padding: 0.6em 1em; 
+         background: #ffffff; 
+         box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+         margin-left: 5px;
+     }
+     .bodyBox{
+         border-radius: 1em; 
+         padding: 0.8em 1em; 
+         background: #ffffff; 
+         box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+         margin-left: 5px;
+     }
+ </style>
+ 
+ {% if user.is_authenticated %}
+<section style="margin: 20px; margin-left: 35px; margin-top: 30px;">
 <div class="accordion-1">
     <div class="col-lg-12">
-        <h2 class="h2-heading">기부페이지</h2>
-            <h3>{{donation.title}}</h3>
-           작성자 : {{donation.writer}}<br>
-           날짜 : {{donation.pub_date}}<br>
+        
+            <h2 class="titleBox">제목 : {{donation.title}}</h2>
+            <br>
+            <h5 style="display: inline;">작성자 :</h5> <a class="first_a" href="{% url 'mypage:mypage' donation.writer.id %}">{{donation.writer}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+          <br>
+          <h5 style="display: inline;">날짜 :</h5> {{donation.pub_date}}<br>
+           
            기부할 머리길이 : {{donation.hair_length}}<br>
            <hr>
            {% if donation.image %}
@@ -20,4 +99,14 @@
                 <a href="{%url 'donation:donate_edit' donation.id%}">수정하기</a>
                 <a href="{%url 'donation:donate_delete' donation.id%}">삭제하기</a>
            {%endif%}
+          </section>
+
+{% else %}
+<div style="display:block; text-align: center; width:900px;margin: 300px auto; position:relative;">
+  <h3>로그인 후 이용 가능</h3>
+  <br>
+  <a href="{% url 'account_login' %}" class="btn " style="background-color: rgb(218, 218, 248);">로그인</a>
+  <a href="{% url 'account_signup' %}" class="btn " style="background-color: rgb(218, 218, 248);">회원가입</a>
+</div>
+{% endif %}
 {% endblock %}
