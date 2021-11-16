@@ -26,7 +26,7 @@
          color: whitesmoke;
      }
      button{
-       background: rgba(255, 206, 160, 0.774);;
+       background: rgba(255, 197, 142, 0.774);
        color:#fff;
        border:none;
        position:relative;
@@ -38,8 +38,8 @@
        outline:none;
      }
      button:hover{
-       background:rgb(160, 174, 255);
-       color:rgba(255, 206, 160, 0.774);
+       background:rgba(255, 255, 255, 0.774);
+       color:rgba(255, 161, 73, 0.774);
      }
      button:before,button:after{
        content:'';
@@ -87,18 +87,23 @@
             <h5 style="display: inline;">작성자 :</h5> <a class="first_a" href="{% url 'mypage:mypage' donation.writer.id %}">{{donation.writer}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
           <br>
           <h5 style="display: inline;">날짜 :</h5> {{donation.pub_date}}<br>
-           
-           기부할 머리길이 : {{donation.hair_length}}<br>
+          <h5 style="display: inline;">기부할 머리길이 :</h5> {{donation.hair_length}}<br>
            <hr>
-           {% if donation.image %}
-                <p><img src="{{donation.image.url}}" alt="사진"></p>
-           {% endif %}
-           <p>{{donation.body}}</p> <br>
+           <div class="bodyBox">
+               <h3>기부 정보</h3> {{donation.body}}
+               <br><br>
+               {% if donation.image %}
+               <h3>관련 이미지</h3> 
+               <img class="postImage" src="{{ donation.image.url }}"  alt="사진 나올 곳"><br>
+               {% endif %}
+           </div>
+           <br>
 
            {%if user == donation.writer%}
-                <a href="{%url 'donation:donate_edit' donation.id%}">수정하기</a>
-                <a href="{%url 'donation:donate_delete' donation.id%}">삭제하기</a>
+           <button><a class="end_a" href="{% url 'donation:donate_edit' donation.id%}">수정하기</a></button>
+           <button><a class="end_a" href="{% url 'donation:donate_delete' donation.id%}">삭제하기</a></button>
            {%endif%}
+           
           </section>
 
 {% else %}
