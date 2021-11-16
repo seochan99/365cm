@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% load static %}
+
+<div class="accordion-1">
+    <div class="col-lg-12">
+        <h2 class="h2-heading">기부list</h2>
+        {% for donation in donations %}
+        <div>
+            <h3>{{donation.title}}</h3>
+            {{donation.writer}}<br>
+            {{donation.summary}}<br>
+            <a href="{%url 'donation:donate_detail' donation.id %}">...more</a>
+        </div>
+        {%endfor%}
+
+        {%if user.is_authenticated%}
+            <h3><a href="{%url 'donation:donate_new'%}">기부신청하기</a></h3>
+        {%else%}
+            <br><h3>로그인 후 기부 가능합니다.</h3>
+        {%endif%}
+{% endblock %}
