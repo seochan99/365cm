@@ -1,0 +1,23 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+{% load static %}
+
+<div class="accordion-1">
+    <div class="col-lg-12">
+        <h2 class="h2-heading">기부페이지</h2>
+            <h3>{{donation.title}}</h3>
+           작성자 : {{donation.writer}}<br>
+           날짜 : {{donation.pub_date}}<br>
+           기부할 머리길이 : {{donation.hair_length}}<br>
+           <hr>
+           {% if donation.image %}
+                <p><img src="{{donation.image.url}}" alt="사진"></p>
+           {% endif %}
+           <p>{{donation.body}}</p> <br>
+
+           {%if user == donation.writer%}
+                <a href="{%url 'donation:donate_edit' donation.id%}">수정하기</a>
+                <a href="{%url 'donation:donate_delete' donation.id%}">삭제하기</a>
+           {%endif%}
+{% endblock %}
