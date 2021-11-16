@@ -1,0 +1,39 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block content %}
+
+<!-- 배경테마 -->
+<div class="hero-wrap js-fullheight">
+  <div class="overlay"></div>
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true" style="background-image: url(../../static/images/배경사진.jpg);">
+      <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }">
+        <!-- 로그인 툴 -->
+        <section style="background-size:100%; margin:200px">
+          <div style="width:300px; margin:0 auto; ">
+          <div data-wow-delay="0.5s">
+            <div >
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                {% csrf_token %} 
+                <!-- 밑에 걸로 폼수정  -->
+                {{ form.as_p }}
+                <div>
+                  <input type="submit" class="upload-btn" value="Login" style="background: rgba(255, 206, 160, 0.774); color: whitesmoke; border-radius: 18px; border: none;  padding: 5px 30px;"/>
+                </div>
+              </form>
+            </div>
+            <br>
+            <div>
+              <p>회원이 아니신가요? <a href="{% url 'account_signup' %}">회원가입</a></p>
+            </div>
+          </div>
+        </div> 
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
