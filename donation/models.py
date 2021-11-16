@@ -10,6 +10,13 @@ class Donate(models.Model):
     hair_length = models.IntegerField()
     body = models.TextField()
     image=models.ImageField(upload_to="donate/", default=None, null=True)
+    donate_member = models.ManyToManyField(
+        User, related_name="donate_member", through="member"
+    )  # 가입된 유저들
+
+class member(models.Model):
+    study = models.ForeignKey(Donate, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.title

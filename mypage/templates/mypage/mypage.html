@@ -256,6 +256,16 @@ a:hover{
                         <i class="fas fa-hand-holding-medical fa-2x"></i>
                       <h1 class="my_title" style="font-family: 'Montserrat', sans-serif;">나의 기부내역</h1>
                         <!-- 게시글 나열하는 프론트  -->
+                        {% for donation in my_donation %}
+                        dasd
+                        <div>
+                            <h3>{{donation.title}}</h3>
+                            {{donation.writer}}<br>
+                            {{donation.summary}}<br>
+                            <a href="{%url 'donation:donate_detail' donation.id %}">...more</a>
+                        </div>
+                        <hr>
+                        {%endfor%}
                     </div>
                   </div>
 
