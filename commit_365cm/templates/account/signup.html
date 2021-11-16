@@ -1,0 +1,32 @@
+{% extends 'base.html' %} 
+{% load static %} 
+{% load i18n %} 
+{% block content %}
+
+<div class="hero-wrap js-fullheight">
+  <div class="overlay"></div>
+  <div id="particles-js"></div>
+  <div class="container">
+    <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true" style="background-image: url(../../static/images/배경사진.jpg);background-repeat: no-repeat; background-size: cover;">
+      <div class="col-md-6 ftco-animate text-center" data-scrollax=" properties: { translateY: '70%' }" style="margin-right: 100px;">
+        <section id="portfolio" style="background-size:100%; margin:200px" >
+          <div style="width:300px; margin:0 auto; ">
+          <div class="wow fadeInUp" data-wow-delay="0.5s">
+            <div class="signup-sec">
+              <form class="signup" method="POST" action="{% url 'account_signup' %}" style="margin-right: 10px;">
+                {% csrf_token %} 
+                {{ form.as_p }}
+                <div class="signup-btn">
+                  <input type="submit" class="upload-btn" value="Signup" style="background: rgba(255, 206, 160, 0.774); color: whitesmoke; border-radius: 18px; border: none; padding: 5px 30px;"/>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div> 
+        </section>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
