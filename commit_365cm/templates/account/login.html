@@ -28,10 +28,9 @@
               <form class="login" method="POST" action="{% url 'account_login' %}">
                 {% csrf_token %} 
                 <!-- 밑에 걸로 폼수정  -->
-                {{ form.as_p }}
-                <div>
-                  <input type="submit" class="upload-btn" value="Login" style="background: rgba(255, 206, 160, 0.774); color: whitesmoke; border-radius: 18px; border: none;  padding: 5px 30px;"/>
-                </div>
+                <p><label for="id_username"></label><input type="text" name="login" placeholder="  아이디" autocomplete="username" minlength="1" maxlength="150" required="" id="id_login" style="border-radius: 10px; height:30px; width:200px;"></p>
+                <p><label for="id_password"></label><input type="password" name="password" placeholder="  비밀번호" autocomplete="current-password" minlength="1" maxlength="150" required="" id="id_password" style="border-radius: 10px; height:30px; width:200px;"></p>
+                <p id="login_submit"><input id="ping" type="submit" value="Login" style="height: 20px; background: rgba(255, 206, 160, 0.774);  border-radius: 10px; color: whitesmoke; height: 30px; width: 80px; border: white;"></p>
               </form>
             </div>
             <br>
