@@ -22,7 +22,7 @@
         <!-- 뉴스 끝 -->
         <div class="container">
             <div class="row">
-                <h4>Comments {{cnt}}<hr></h4>
+                <h4>Comments {{cnt}}<hr /></h4>
                 {% if user.is_authenticated %}
                 <form action="{% url 'main:create_comment' news.id %}" method="post">
                     {%csrf_token%}
@@ -35,16 +35,18 @@
             {% if comments %}
             <div>
                 {% for comment in comments %}
-                <hr>
                 <div>
-                    <div><b>{{comment.writer}}</b></div>
                     <div>{{comment.content}}</div>
-                    <a type="button" href="{% url 'main:update_comment' news.id comment.id %}">
-                        수정
-                    </a>
-                    <a type="button" href="{% url 'main:delete_comment' news.id comment.id %}">
-                        삭제
-                    </a>
+                    <div>{{comment.writer}}</div>
+                    {% if comment.writer == request.user %}
+                        <a type="button" href="{% url 'main:update_comment' news.id comment.id %}">
+                            수정
+                        </a>
+                        <a type="button" href="{% url 'main:delete_comment' news.id comment.id %}">
+                            삭제
+                        </a>
+                    {% else %}
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
