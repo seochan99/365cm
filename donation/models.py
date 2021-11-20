@@ -14,12 +14,12 @@ class Donate(models.Model):
         User, related_name="donate_member", through="member"
     )  # 가입된 유저들
 
-class member(models.Model):
-    study = models.ForeignKey(Donate, on_delete=models.CASCADE)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     def __str__(self):
         return self.title
 
     def summary(self):
         return self.body[:100]
+
+class member(models.Model):
+    Donate = models.ForeignKey(Donate, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
