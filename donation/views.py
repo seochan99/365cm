@@ -14,6 +14,9 @@ def donate_detail(request, id):
 def donate_new(request):
     return render(request, 'donation/donate_new.html')
 
+def donate_rank(request):
+    return render(request,'donation/donate_rank.html')
+
 def donate_create(request):
     new_donation = Donate()
     new_donation.title = request.POST['title']
