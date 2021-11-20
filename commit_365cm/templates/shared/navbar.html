@@ -17,11 +17,8 @@
     <div class="container">
       <!-- Image Logo --> 
       <!-- 이미지로고 삽입  -->
-      <!-- <a class="navbar-brand logo-image" href="{% url 'main:showmain' %}">
-        <img src="static/images/logo.svg" alt="alternative" />
-      </a> -->
       <a class="navbar-brand h1" href="{% url 'main:showmain' %}">
-        <i class="fas fa-laptop-medical fa-2x"></i>
+        <img src="https://media.vlpt.us/images/seochan99/post/1c596142-2a45-44c3-945c-198611d8f3da/mainIcon.png" alt="logo" style="width: 20%; transform: translateY(-6px);"/>
         <span class=" text-dark h4 titlename">365</span> <span class="h4 titlename" style="color: rgb(255, 187, 110);">cm</span>
     </a>
 
@@ -78,7 +75,7 @@
               </li>
               <li><div class="dropdown-divider"></div></li>
               <li>
-                <a class="dropdown-item" href="terms.html">
+                <a class="dropdown-item" href="{% url 'donation:donate_rank' %}">
                   기부랭킹
                 </a>
               </li>

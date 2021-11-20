@@ -1,31 +1,31 @@
 from django.shortcuts import render
-
-from django.shortcuts import render
 from django.contrib.auth.models import User
 
 from django.db import models
-
+from django.views import View
 from django.views.generic import detail
 from django.views.generic.detail import DetailView
-from django.views import View
-
-from donation.models import Donate
-from .forms import  ProfileForm
-
 from django.shortcuts import render,get_object_or_404, redirect
 
-# 메인앱의 모델에서 스토리,음악,일러스트 가져오기 
-from main.models import *
+
+
+from .models import *
+from .forms import  ProfileForm
+from .views import *
+
 
 #마이페이지 
 def mypage(request,id):
     user = get_object_or_404(User,pk=id)
+    my_donation= Donate.objects.filter(writer=user)
+    donations=Donate.objects.all()
     context = {
         'user':user,
-        'my_donation' : Donate.objects.filter(donate_member=user),
+        'my_donation' : my_donation,
         'profile_user':DetailView.model,
         'followings':user.profile.followings.all(), 
         'followers':user.profile.followers.all(),
+        'donations': donations,
     }
     DetailView.context_object_name='profile_user'
     DetailView.model = User 

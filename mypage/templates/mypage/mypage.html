@@ -1,7 +1,7 @@
-{% extends 'base.html' %}
-{% load static %}
-
+{% extends 'base.html' %} 
 {% block content %}
+
+{% load static %}
 <style>
       .first_a{
         border: 2px solid none;
@@ -164,7 +164,6 @@ main {
 .gallery div {
   margin-bottom: 30px;
 }
-
 .gallery img {
   box-shadow: 0 3px 6px rgba(0,0,0,0.10), 0 3px 6px rgba(0,0,0,0.10);
   width: auto; 
@@ -229,21 +228,12 @@ a:hover{
                     <a href="{% url 'mypage:profile_update' %}"><button type="button" class="btn btn-default" style="background-color:rgb(80, 99, 185); color: whitesmoke; margin: 10px 0px;">프로필 편집</button></a></h2></a>
                     {% endif %}
 
-              <!-- <div class="stats row">
-                <div class="stat col-xs-4" style="padding-right: 30px; ">
-                  <p class="number-stat">3,619</p>
-                  <p class="desc-stat">Followers</p>
-                  <p class="number-stat">42</p>
-                  <p class="desc-stat">Following</p>
-                </div>
-              </div> -->
-
               <br>
               <h4>Status Message</h4>
               {% if user.profile.bio %}
               <p class="desc" style="font-size: larger;">{{user.profile.bio}}</p>
               {% else %}
-              <p class="desc" style="font-size: larger;">"356cm 기부하는 그 날 까지 !"</p>
+              <p class="desc" style="font-size: larger;">"356cm 기부하는 그날까지 !"</p>
               {% endif %}
               <hr/>
             </div>
@@ -255,17 +245,10 @@ a:hover{
                     <div class="story">
                         <i class="fas fa-hand-holding-medical fa-2x"></i>
                       <h1 class="my_title" style="font-family: 'Montserrat', sans-serif;">나의 기부내역</h1>
-                        <!-- 게시글 나열하는 프론트  -->
-                        {% for donation in my_donation %}
-                        dasd
-                        <div>
-                            <h3>{{donation.title}}</h3>
-                            {{donation.writer}}<br>
-                            {{donation.summary}}<br>
-                            <a href="{%url 'donation:donate_detail' donation.id %}">...more</a>
-                        </div>
-                        <hr>
-                        {%endfor%}
+
+
+
+
                     </div>
                   </div>
 
@@ -276,11 +259,21 @@ a:hover{
                 <h1>기부 승인 <i class="fas fa-calendar-check"></i>
                 <hr>
 
+
                 <hr/>
 
                 <h1>기부 대기 <i class="far fa-calendar-check"></i>
                 <hr>
 
+                        <!-- 게시글 나열하는 프론트  -->
+                        {% for donation in my_donation %}
+                        <div>
+
+                          <a href="{%url 'donation:donate_detail' donation.id %}"><h3>{{donation.title}}</h3></a>
+                            {{donation.summary}}<br>
+                        </div>
+                        <hr>
+                        {%endfor%}
                 <hr/>
               </div>
 
