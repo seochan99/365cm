@@ -38,12 +38,15 @@
                 <div>
                     <div>{{comment.content}}</div>
                     <div>{{comment.writer}}</div>
-                    <a type="button" href="{% url 'main:update_comment' news.id comment.id %}">
-                        수정
-                    </a>
-                    <a type="button" href="{% url 'main:delete_comment' news.id comment.id %}">
-                        삭제
-                    </a>
+                    {% if comment.writer == request.user %}
+                        <a type="button" href="{% url 'main:update_comment' news.id comment.id %}">
+                            수정
+                        </a>
+                        <a type="button" href="{% url 'main:delete_comment' news.id comment.id %}">
+                            삭제
+                        </a>
+                    {% else %}
+                    {% endif %}
                 </div>
                 {% endfor %}
             </div>
