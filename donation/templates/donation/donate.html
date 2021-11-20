@@ -85,8 +85,7 @@
         <section style="margin: 20px; margin-left: 35px; margin-top: 30px;">
         {% for donation in donations %}
         <div>
-            <h3>{{donation.title}}</h3>
-            {{donation.writer}}<br>
+            <h3>{{donation.writer}}님의 기부이야기</h3><br>
             {{donation.summary}}<br>
             <a href="{%url 'donation:donate_detail' donation.id %}">...more</a>
         </div>
