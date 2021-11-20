@@ -22,7 +22,7 @@
         <!-- 뉴스 끝 -->
         <div class="container">
             <div class="row">
-                <h4>Comments {{cnt}}<hr /></h4>
+                <h4>Comments {{cnt}}<hr></h4>
                 {% if user.is_authenticated %}
                 <form action="{% url 'main:create_comment' news.id %}" method="post">
                     {%csrf_token%}
@@ -35,9 +35,10 @@
             {% if comments %}
             <div>
                 {% for comment in comments %}
+                <hr>
                 <div>
+                    <div><b>{{comment.writer}}</b></div>
                     <div>{{comment.content}}</div>
-                    <div>{{comment.writer}}</div>
                     <a type="button" href="{% url 'main:update_comment' news.id comment.id %}">
                         수정
                     </a>

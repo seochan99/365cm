@@ -16,8 +16,10 @@ def news(request):
 def news_detail(request,id):
     news = get_object_or_404(News, pk = id)
     comments = news.comments.all().order_by('-created_at')
-    cnt = list(Comments.objects.values('news').annotate(Count('news')))[0]
-    cnt = cnt['news__count']
+    cnt = 0
+    if Comments.objects.all():
+        cnt = list(Comments.objects.values('news').annotate(Count('news')))[0]
+        cnt = cnt['news__count']
     return render(request, 'main/news_detail.html',{'news':news, 'comments': comments, 'cnt': cnt})
 
 def create_comment(request, id):
