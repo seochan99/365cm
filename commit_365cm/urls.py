@@ -8,4 +8,5 @@ urlpatterns = [
     path("", include("main.urls")),
     path("accounts/", include("allauth.urls")),
     path("mypage/", include("mypage.urls")),
+    path("donation/", include("donation.urls")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

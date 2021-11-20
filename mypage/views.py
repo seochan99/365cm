@@ -8,6 +8,8 @@ from django.db import models
 from django.views.generic import detail
 from django.views.generic.detail import DetailView
 from django.views import View
+
+from donation.models import Donate
 from .forms import  ProfileForm
 
 from django.shortcuts import render,get_object_or_404, redirect
@@ -20,6 +22,7 @@ def mypage(request,id):
     user = get_object_or_404(User,pk=id)
     context = {
         'user':user,
+        'my_donation' : Donate.objects.filter(donate_member=user),
         'profile_user':DetailView.model,
         'followings':user.profile.followings.all(), 
         'followers':user.profile.followers.all(),
