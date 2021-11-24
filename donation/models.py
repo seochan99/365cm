@@ -19,6 +19,7 @@ class Donate(models.Model):
     donate_member = models.ManyToManyField(
         User, related_name="donate_member", through="member"
     )  # 가입된 유저들
+    approved = models.BooleanField(default=False)
 
 class member(models.Model):
     study = models.ForeignKey(Donate, on_delete=models.CASCADE)

@@ -12,4 +12,5 @@ urlpatterns = [
     path('donate_edit/<int:id>', donate_edit, name="donate_edit"),
     path('donate_update/<int:id>', donate_update, name="donate_update"),
     path('donate_delete/<int:id>', donate_delete, name="donate_delete"),
+    path('donate_complete', donate_complete, name="donate_complete"),
 ]

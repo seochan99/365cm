@@ -23,7 +23,7 @@ def donate_create(request):
     new_donation.body = request.POST['body']
     new_donation.image = request.FILES['image']
     new_donation.save()
-    return redirect('donation:donate_detail', new_donation.id)
+    return redirect('donation:donate_complete')
 
 def donate_edit(request, id):
     edit_donation = Donate.objects.get(id=id)
@@ -43,3 +43,6 @@ def donate_delete(request, id):
     delete_donation = Donate.objects.get(id=id)
     delete_donation.delete()
     return redirect('donation:donate')
+
+def donate_complete(request):
+    return render(request, 'donation/donate_complete.html')
