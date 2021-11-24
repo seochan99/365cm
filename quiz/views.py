@@ -18,6 +18,7 @@ def selectQuiz(request, select_id, id):
 
 def nextQuiz(request, select_id, id):
   quiz = request.POST.get('quiz')
+  if id == 10: id = 12
   now_quiz = list(Quiz.objects.filter(id=id).values('score'))
   id += 1
   now_score = now_quiz[0]['score'].split("/")[int(quiz)]
@@ -28,7 +29,7 @@ def nextQuiz(request, select_id, id):
     select = get_object_or_404(Select, pk=select_id)
     select.score += int(now_score)
     select.save()
-  if id == 10:
+  if id == 13:
     return render(request, 'quiz_result.html', { 'select' : select })
   else:
     return redirect('quiz:selectQuiz', select_id, id)

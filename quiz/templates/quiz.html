@@ -13,7 +13,7 @@
 <script>
   var section = document.getElementById('section');
   const param = window.location.href;
-  var id = param.slice(-2, -1);
+  var id = param.slice(-2, -1) === '0' ? 12 : param.slice(-2, -1);
 
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
