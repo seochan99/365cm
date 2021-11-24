@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="accordion-1">
+  테스트 하기
+  <a href="{% url 'quiz:selectQuiz' 0 1 %}">시작</a>
+</div>
+
+
+{% endblock %}

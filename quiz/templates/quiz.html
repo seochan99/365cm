@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="accordion-1">
+  <form action="{% url 'quiz:nextQuiz' select_id id %}" method="post">
+    {%csrf_token%}
+    <div id="section">
+    </div>
+    <input type="submit" value="다음" />
+  </form>
+</div>
+
+<script>
+  var section = document.getElementById('section');
+  const param = window.location.href;
+  var id = param.slice(-2, -1);
+
+  async function fetchQuiz(){
+    let response = await fetch(`/quiz/${id}/?format=json`);
+
+    if (response.status === 200) {
+      let data = await response.json();
+      var title = document.createElement('h2');
+      title.innerHTML = data[0]['title'];
+      section.appendChild(title);
+
+      var list = data[0]['body'].split('/');
+      for (var i=0; i < list.length; i++){
+        var body = document.createElement('input');
+        body.setAttribute("type", "radio");
+        body.setAttribute("name", "quiz");
+        body.setAttribute("value", i);
+        section.appendChild(body);
+        var label = document.createElement('label');
+        var br = document.createElement('br');
+        label.innerHTML = "&nbsp" + list[i];
+        section.appendChild(label);
+        section.appendChild(br);
+      }
+    }
+  }
+  fetchQuiz();
+</script>
+
+{% endblock %}

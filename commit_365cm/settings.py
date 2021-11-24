@@ -33,6 +33,8 @@ INSTALLED_APPS = [
     "allauth.socialaccount",
     'mypage',
     'donation',
+    "quiz",
+    "rest_framework"
 ]
 
 MIDDLEWARE = [
