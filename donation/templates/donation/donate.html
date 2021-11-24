@@ -172,7 +172,7 @@
             <h2 class="h2-heading">기부 List</h2>
             <h6 class="heading-info">소아암 환자를 위해 당신의 머리카락을 기부해주세요</h5><br>
             {%if user.is_authenticated%}
-                <div style="text-align: center;"><button class="end_a" href="{%url 'donation:donate_new'%}">기부신청하기</button></div>
+                <div style="text-align: center;"><button><a class="end_a" href="{%url 'donation:donate_new'%}">기부신청하기></a></button></div>
                 {%else%}
                 <br><h3>로그인 후 기부 가능합니다.</h3>
             {%endif%}
@@ -192,7 +192,10 @@
     
                     <div class="card h-100">
                         <!-- 상태표시 -->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: rgba(255, 161, 73, 0.774);">심사중</div>
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: rgba(255, 161, 73, 0.774);">
+                            {%if donation.approved == True%} 승인완료
+                            {%else%} 승인대기
+                            {%endif%}</div>
                         <!-- Product image-->
                         {% if donation.image %}
                         <div class="donation-iamge"  ><img class="card-img-top"  src="{{ donation.image.url }}"  alt="사진 나올 곳"></div><br>
@@ -202,7 +205,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h5 class="fw-bolder">{{donation.title}}</h5>
+                                <h5 class="fw-bolder">{{donation.writer}}님의<br> 기부이야기</h5>
                                 {{donation.writer}}<br>
                                 {{donation.summary}}<br>
                         

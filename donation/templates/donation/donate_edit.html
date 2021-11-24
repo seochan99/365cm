@@ -8,8 +8,10 @@
         <h2 class="h2-heading">기부신청 수정하기</h2>
         <form action="{%url 'donation:donate_update' donation.id%}" method="post">
             {%csrf_token%}
-            <p>제목 : <input type="text" name="title" value="{{donation.title}}"> </p>
-            <p>기부할 머리길이 : <input type="number" name="hair_length" value="{{donation.hair_length}}"></p>
+            <p>기부할 머리길이 : <input type="number" name="hair_length" value="{{donation.hair_length}}" min="25"></p>
+            <p>모발상태 : <input type="radio" name="hair_condition" value="상(염색&탈색X, 파마X)">상(염색&탈색X, 파마X)
+                         <input type="radio" name="hair_condition" value="중(염색&탈색X, 파마O)">중(염색&탈색X, 파마O)
+                         <input type="radio" name="hair_condition" value="하(염색&탈색O)">하(염색&탈색O) </p>
             <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10">{{donation.body}}</textarea> </p>
             <button type="submit">수정</button>
         </form>

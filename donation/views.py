@@ -19,14 +19,14 @@ def donate_rank(request):
 
 def donate_create(request):
     new_donation = Donate()
-    new_donation.title = request.POST['title']
     new_donation.writer = request.user
     new_donation.pub_date = timezone.now()
     new_donation.hair_length = request.POST['hair_length']
+    new_donation.hair_condition = request.POST['hair_condition']
     new_donation.body = request.POST['body']
     new_donation.image = request.FILES['image']
     new_donation.save()
-    return redirect('donation:donate_detail', new_donation.id)
+    return redirect('donation:donate_complete')
 
 def donate_edit(request, id):
     edit_donation = Donate.objects.get(id=id)
@@ -34,10 +34,10 @@ def donate_edit(request, id):
 
 def donate_update(request, id):
     update_donation = Donate.objects.get(id=id)
-    update_donation.title = request.POST['title']
     update_donation.writer = request.user
     update_donation.pub_date = timezone.now()
     update_donation.hair_length = request.POST['hair_length']
+    update_donation.hair_condition = request.POST['hair_condition']
     update_donation.body = request.POST['body']
     update_donation.save()
     return redirect('donation:donate_detail', update_donation.id)
@@ -46,3 +46,14 @@ def donate_delete(request, id):
     delete_donation = Donate.objects.get(id=id)
     delete_donation.delete()
     return redirect('donation:donate')
+
+def donate_complete(request):
+    return render(request, 'donation/donate_complete.html')
+
+
+def donate_rank(request):
+    objects = Donate.objects.all()
+    max = objects.order_by("-hair_length")[:3]
+    rank = 0
+    return render(request, 'donation/donate_rank.html', {'objects':objects, 'max':max, 'rank':rank})
+    

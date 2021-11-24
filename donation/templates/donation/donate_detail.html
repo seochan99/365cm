@@ -82,16 +82,24 @@
 <div class="accordion-1">
     <div class="col-lg-12">
         
-            <h2 class="titleBox">제목 : {{donation.title}}</h2>
+            <h2 class="titleBox">{{donation.writer}}님의 기부이야기</h2>
+            {%if donation.approved == True%}
+              <h4 style="margin-left: 20px;">승인완료</h4>
+            {%else%} <h4 style="margin-left: 20px;">승인대기</h4>
+            {%endif%}
             <br>
 
             <h5 style="display: inline; margin-left: 20px;">작성자 :</h5> <a class="first_a" href="{% url 'mypage:mypage' donation.writer.id %}">{{donation.writer}}</a>&nbsp;&nbsp;&nbsp;&nbsp;
+            
+
+            
           <br>
           <h5 style="display: inline; margin-left: 20px;">날짜 :</h5> {{donation.pub_date}}<br>
           <h5 style="display: inline; margin-left: 20px;">기부할 머리길이 :</h5> {{donation.hair_length}}cm<br>
+          <h5 style="display: inline; margin-left: 20px;">모발상태 :</h5> {{donation.hair_condition}}<br>
            <hr>
            <div class="bodyBox">
-               <h3>기부 정보</h3> {{donation.body}}
+               <h3>기부 계기</h3> {{donation.body}}
                <br><br>
                {% if donation.image %}
                <h3>관련 이미지</h3> 
