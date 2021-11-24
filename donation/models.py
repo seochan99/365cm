@@ -13,19 +13,18 @@ class Donate(models.Model):
         ('middle', 'middle'),
         ('low', 'low'),
     )
-    hair_condition = models.CharField(choices=HAIR_CONDITION, max_length=50, blank=True, null=True)
+    hair_condition = models.CharField(choices=HAIR_CONDITION, max_length=50, null=True, blank=True)
     body = models.TextField()
     image=models.ImageField(upload_to="donate/", default=None, null=True, blank=True)
     donate_member = models.ManyToManyField(
         User, related_name="donate_member", through="member"
     )  # 가입된 유저들
     approved = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.title
+    beststory = models.IntegerField(null=True)
 
     def summary(self):
         return self.body[:100]
+
 
 class member(models.Model):
     Donate = models.ForeignKey(Donate, on_delete=models.CASCADE)

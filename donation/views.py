@@ -49,3 +49,11 @@ def donate_delete(request, id):
 
 def donate_complete(request):
     return render(request, 'donation/donate_complete.html')
+
+
+def donate_rank(request):
+    objects = Donate.objects.all()
+    max = objects.order_by("-hair_length")[:3]
+    rank = 0
+    return render(request, 'donation/donate_rank.html', {'objects':objects, 'max':max, 'rank':rank})
+    
