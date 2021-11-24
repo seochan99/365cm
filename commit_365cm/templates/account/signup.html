@@ -15,10 +15,11 @@
             <div class="signup-sec">
               <form class="signup" method="POST" action="{% url 'account_signup' %}" style="margin-right: 10px;">
                 {% csrf_token %} 
-                {{ form.as_p }}
-                <div class="signup-btn">
-                  <input type="submit" class="upload-btn" value="Signup" style="background: rgba(255, 206, 160, 0.774); color: whitesmoke; border-radius: 18px; border: none; padding: 5px 30px;"/>
-                </div>
+                <p><label for="id_username"></label><input type="text" name="username" placeholder="  아이디" autocomplete="username" minlength="1" maxlength="150" required="" id="id_username" style="border-radius: 10px; height:20px; width:200px;"></p>
+    <p><label for="id_email"></label> <input type="email" name="email" placeholder="  이메일 주소(선택)" autocomplete="email" id="id_email" style="border-radius: 10px; height:20px; width:200px;"></p>
+    <p><label for="id_password1"></label> <input type="password" name="password1" placeholder="  비밀번호" autocomplete="new-password" required="" id="id_password1" style="border-radius: 10px; height:20px; width:200px;"></p>
+    <p><label for="id_password2"></label> <input type="password" name="password2" placeholder="  비밀번호(확인)" required="" id="id_password2" style="border-radius: 10px; height:20px; width:200px;"></p>
+    <p><input type="submit" value="Sign up" style="height: 20px; background : rgba(255, 206, 160, 0.774); border-radius: 10px; color: whitesmoke; height: 30px; width: 80px; border: white;"></p>
               </form>
             </div>
           </div>
