@@ -172,7 +172,7 @@
             <h2 class="h2-heading">기부 List</h2>
             <h6 class="heading-info">소아암 환자를 위해 당신의 머리카락을 기부해주세요</h5><br>
             {%if user.is_authenticated%}
-                <div style="text-align: center;"><button><a class="end_a" href="{%url 'donation:donate_new'%}">기부신청하기></a></button></div>
+                <div style="text-align: center;"><button><a class="end_a" href="{%url 'donation:donate_new'%}">기부신청하기</a></button></div>
                 {%else%}
                 <br><h3>로그인 후 기부 가능합니다.</h3>
             {%endif%}
