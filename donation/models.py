@@ -23,7 +23,7 @@ class Donate(models.Model):
     beststory = models.IntegerField(null=True)
 
     def summary(self):
-        return self.body[:100]
+        return self.body[:30]
 
 
 class member(models.Model):
