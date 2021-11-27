@@ -2,9 +2,62 @@
 {% block content %}
 
 {% load static %}
+
+<style>
+    .end_a
+     {
+         text-decoration: none;
+         color: rgb(0, 0, 0);
+         display: inline-block;
+     }
+     button{
+       background: rgba(255, 197, 142, 0.774);
+       color:#fff;
+       border:none;
+       position:relative;
+       height:40px;
+       font-size:1em;
+       padding:0 20px;
+       cursor:pointer;
+       transition:800ms ease all;
+       outline:none;
+     }
+     button:hover{
+       background:rgba(255, 255, 255, 0.774);
+       color:rgba(255, 161, 73, 0.774);
+     }
+     button:before,button:after{
+       content:'';
+       position:absolute;
+       top:0;
+       right:0;
+       height:2px;
+       width:0;
+       background: rgba(255, 206, 160, 0.774);
+       transition:400ms ease all;
+     }
+     button:after{
+       right:inherit;
+       top:inherit;
+       left:0;
+       bottom:0;
+     }
+     button:hover:before,button:hover:after{
+       width:100%;
+       transition:800ms ease all;
+     }
+     
+     .d-page{
+         text-align: center;
+     }
+</style>
 <div class="accordion-1">
     <div class="col-lg-12">
-        <h2 class="h2-heading">기부 신청해주셔서 감사합니다 <br><br> 곧 승인여부가 결정될 예정이니 <br> 조금만 기다려주세요</h2>
+        <div class="h2-heading"><h2>기부 신청해주셔서 감사합니다</h2><br><h3> 곧 승인여부가 결정될 예정이니 <br> 조금만 기다려주세요</h3></div>
+    </div>
+    <div class="d-page">
+        <button><a class="end_a" href="{% url 'donation:donate' %}">기부리스트</a></button>
+        <button><a class="end_a" href="{% url 'main:showmain' %}">메인페이지</a></button>
     </div>
 </div>
 {% endblock %}

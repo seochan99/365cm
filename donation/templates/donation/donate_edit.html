@@ -3,18 +3,91 @@
 
 {% load static %}
 
+
+<style>
+     .titleBox{
+         border-radius: 1em; 
+         padding: 0.6em 1em; 
+         background: #ffffff; 
+         box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+         margin-left: 5px;
+         font-size:1.3rem;
+         font-weight:bold;
+     }
+
+
+     .bodyBox{
+         border-radius: 1em; 
+         padding: 0.8em 1em; 
+         background: #ffffff; 
+         box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
+         margin-left: 5px;
+         font-size:1.3rem;
+         font-weight:bold;
+     }
+
+     .end_a
+     {
+         text-decoration: none;
+         color: rgb(0, 0, 0);
+     }
+
+     button{
+       background: rgba(255, 197, 142, 0.774);
+       color:#fff;
+       border:none;
+       position:relative;
+       height:40px;
+       font-size:1em;
+       padding:0 20px;
+       cursor:pointer;
+       transition:800ms ease all;
+       outline:none;
+     }
+     button:hover{
+       background:rgba(255, 255, 255, 0.774);
+       color:rgba(255, 161, 73, 0.774);
+     }
+     button:before,button:after{
+       content:'';
+       position:absolute;
+       top:0;
+       right:0;
+       height:2px;
+       width:0;
+       background: rgba(255, 206, 160, 0.774);
+       transition:400ms ease all;
+     }
+     button:after{
+       right:inherit;
+       top:inherit;
+       left:0;
+       bottom:0;
+     }
+     button:hover:before,button:hover:after{
+       width:100%;
+       transition:800ms ease all;
+     }
+</style>
+
 <div class="accordion-1">
+    <div class="container">
     <div class="col-lg-12">
         <h2 class="h2-heading">기부신청 수정하기</h2>
         <form action="{%url 'donation:donate_update' donation.id%}" method="post">
             {%csrf_token%}
-            <p>기부할 머리길이 : <input type="number" name="hair_length" value="{{donation.hair_length}}" min="25"></p>
-            <p>모발상태 : <input type="radio" name="hair_condition" value="상(염색&탈색X, 파마X)">상(염색&탈색X, 파마X)
-                         <input type="radio" name="hair_condition" value="중(염색&탈색X, 파마O)">중(염색&탈색X, 파마O)
-                         <input type="radio" name="hair_condition" value="하(염색&탈색O)">하(염색&탈색O) </p>
-            <p>내용 : <textarea type="text" name="body" id="" cols="30" rows="10">{{donation.body}}</textarea> </p>
-            <button type="submit">수정</button>
+            <p class="titleBox">기부할 머리길이 : <input type="number" name="hair_length" value="{{donation.hair_length}}"></p>
+            <p class="titleBox">모발상태 : 
+                <input type="radio" name="hair_condition" value="상(염색&탈색X, 파마X)">상(염색&탈색X, 파마X)
+                <input type="radio" name="hair_condition" value="중(염색&탈색X, 파마O)">중(염색&탈색X, 파마O)
+                <input type="radio" name="hair_condition" value="하(염색&탈색O)">하(염색&탈색O) </p>
+            <div class="bodyBox"> <p style="font-size:1.3rem; font-weight:bold; ">내용<br><br>
+                 <textarea type="text" name="body" id="" cols="30" rows="10" style="font-size:1.1rem">{{donation.body}}</textarea> </p>
+            </div>
+            <br>
+            <button type="submit"><a class="end_a">수정하기</button>
         </form>
+    </div>
     </div>
 </div>
 {% endblock %}
