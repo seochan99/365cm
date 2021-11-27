@@ -24,7 +24,7 @@ def donate_create(request):
     new_donation.hair_length = request.POST['hair_length']
     new_donation.hair_condition = request.POST['hair_condition']
     new_donation.body = request.POST['body']
-    new_donation.image = request.FILES['image']
+    new_donation.image = request.FILES.get('image')
     new_donation.save()
     return redirect('donation:donate_complete')
 
