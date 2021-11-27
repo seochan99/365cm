@@ -137,3 +137,6 @@ ACCOUNT_EMAIL_VERIFICATION = 'none'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 MEDIA_URL = '/media/'
+
+## session ##
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
