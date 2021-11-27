@@ -1,12 +1,24 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
+
+<style>
+  section{
+    margin: 30px;
+    text-align: center;
+  }
+</style>
+
+<section>
 <div class="accordion-1">
   <form action="{% url 'quiz:nextQuiz' select_id id %}" method="post">
     {%csrf_token%}
-    <div id="section">
+
+    <div id="section" style="margin-top: 10px; padding: 10px; font-size: 20px; ">      
     </div>
-    <input type="submit" value="다음" />
+
+
+    <input type="submit" value="다음"  style="padding: 10px 40px; border: none; background-color: rgb(255, 222, 160); border-radius: 10px;"/>  
   </form>
 </div>
 
@@ -18,6 +30,7 @@
 </ul>
 {% endif %}
 
+</section>
 <script>
   var section = document.getElementById('section');
   const param = window.location.href;
