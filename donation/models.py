@@ -15,7 +15,7 @@ class Donate(models.Model):
     )
     hair_condition = models.CharField(choices=HAIR_CONDITION, max_length=50, null=True, blank=True)
     body = models.TextField()
-    image=models.ImageField(upload_to="donate/", default=None, null=True, blank=True)
+    image=models.ImageField(upload_to="image/", default=None, null=True, blank=True)
     donate_member = models.ManyToManyField(
         User, related_name="donate_member", through="member"
     )  # 가입된 유저들
