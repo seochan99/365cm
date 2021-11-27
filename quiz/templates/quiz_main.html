@@ -1,9 +1,82 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load static %}
-<div class="accordion-1">
-  테스트 하기
-  <a href="{% url 'quiz:selectQuiz' 0 1 %}">시작</a>
+<style>
+
+    a:hover{
+        color: black;
+    }
+    .postImage{
+        width: 300px;
+        border-radius: 20px;
+    }
+
+    .end_a
+    {
+        text-decoration: none;
+        color: rgb(0, 0, 0);
+        
+    }
+    button{
+      background: rgba(255, 197, 142, 0.774);
+      color:#fff;
+      border:none;
+      position:relative;
+      height:40px;
+      font-size:1em;
+      padding:0 20px;
+      cursor:pointer;
+      transition:800ms ease all;
+      outline:none;
+      display: inline-block;
+     
+
+      
+    }
+    #buttons-wrapper{
+        text-align: center;
+    }
+    button:hover{
+      background:rgba(255, 255, 255, 0.774);
+      color:rgba(255, 161, 73, 0.774);
+    }
+    button:before,button:after{
+      content:'';
+      position:absolute;
+      top:0;
+      right:0;
+      height:2px;
+      width:0;
+      background: rgba(255, 206, 160, 0.774);
+      transition:400ms ease all;
+    }
+    button:after{
+      right:inherit;
+      top:inherit;
+      left:0;
+      bottom:0;
+    }
+    button:hover:before,button:hover:after{
+      width:100%;
+      transition:800ms ease all;
+    }
+.title{
+  margin: 30px;
+  text-align: center;
+}
+</style>
+
+<div class="accordion-1 title">
+  <h5>365cm가 준비한 특별한 테스트를 해보고 소아암환자를 위한 머리기부에 적합한지 확인하세요!</h5>
+<br>
+  <h1>365cm 테스트</h1>
+  <br>
+  <br>
+
+  <div style="text-align: center;">
+    <button><a class="end_a" href="{% url 'quiz:selectQuiz' 0 1 %}">시작하기</a></button>
+  </div>
+  
 </div>
 
 
