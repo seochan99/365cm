@@ -3,7 +3,17 @@
 
 {% load static %}
 <style>
+/* .flex-container {
+  display: flex;
 
+}
+
+.flex-container > div {
+  
+  margin: 10px;
+  padding: 20px;
+  font-size: 20px;
+} */
 </style>
 
 
@@ -13,32 +23,47 @@
         <hr>
     <section style="margin: 20px; margin-left: 35px; margin-top: 30px;">
         {%for object in max%}
-            우수 기부자 : {{object.writer}}<br>
-            기부 머리 길이 : {{object.hair_length}}<br>
+        
+            <h4>우수 기부자 : {{object.writer}}</h4>
+            기부 머리 길이 : {{object.hair_length}}cm<br>
+            <hr>
+            
         {%endfor%}
         
     </section>
     </div>
-    <hr>
+
     <div class="col-lg-12">
-        <h2 class="h2-heading">사연 TOP3</h2>
+        <h2 class="h2-heading">Best 사연</h2>
         <hr>
-    <section style="margin: 20px; margin-left: 35px; margin-top: 30px;">
-        {%for object in objects%}
-            {%if object.beststory == 1%}
-                우수 사연자 : {{object.writer}}<br>
-                {{object.body}}<br>
-            {%endif%}
-            {%if object.beststory == 2%}
-                우수 사연자 : {{object.writer}}<br>
-                {{object.body}}<br>
-            {%endif%}
-            {%if object.beststory == 3%}
-                우수 사연자 : {{object.writer}}<br>
-                {{object.body}}<br>
-            {%endif%}
-        {%endfor%}
-    </section>
+        
+        <div class="flex-container" style="margin:20px; margin-left:35px; margin-top: 30px;">
+        
+            {%for object in objects%}
+                <div>
+                    {%if object.beststory == 1%}
+                        <h4>우수 사연자 : {{object.writer}}<i class="fas fa-medal"></i><br></h4>
+                        {{object.body}}<br>
+                        <hr>
+                    {%endif%}
+
+                </div>
+
+                <div>
+                    {%if object.beststory == 2%}
+                        <h4>우수 사연자 : {{object.writer}}<i class="fas fa-medal"></i></h4>
+                        {{object.body}}<br>
+                        <hr>
+                    {%endif%}
+                </div>
+                <div>
+                    {%if object.beststory == 3%}
+                    <h4>우수 사연자 : {{object.writer}}<i class="fas fa-medal"></i></h4>
+                        {{object.body}}<br>
+                        <hr>
+                    {%endif%}
+                </div>
+            {%endfor%}
+        </div>
     </div>
-    <hr>
 {% endblock %}
