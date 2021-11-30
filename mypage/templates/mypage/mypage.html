@@ -197,6 +197,9 @@ a:hover{
         color: rgb(0, 0, 0);
         
     }
+    a{
+      text-decoration: none;
+    }
     button{
       background: rgba(255, 197, 142, 0.774);
       color:#fff;
@@ -302,7 +305,6 @@ a:hover{
         <main>
           <div class="row">
             <div class="left col-lg-4">
-
 <!-- 이하 프로필 -->
 <!-- 프로필사진 -->
               <div class="photo-left"> 
@@ -353,14 +355,13 @@ a:hover{
               {% endif %}
               <hr/>
             </div>
-            
 <!-- 프로필끝 -->
 
             <div class="right col-lg-8">
                 <div class="myList">
                     <div class="story">
                         <i class="fas fa-hand-holding-medical fa-2x"></i>
-                      <h1 class="my_title" style="font-family: 'Montserrat', sans-serif;">{{user.username}}의 기부내역</h1>
+                      <h1 class="my_title" style="font-family: 'Montserrat', sans-serif;">{{user.username}}님의 기부내역</h1>
                       <hr>
 
                       <div class="row gallery">
@@ -371,34 +372,9 @@ a:hover{
                         {% for donation in my_donation %}
                           {%if donation.approved == True %}
                           
-                            <!-- <div>
-                            <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
-                            </div> -->
-
-
-                          <!-- <div class="donation-card" style="width: 40%; font-size: 20px; ">
-           
-                              <div class="d-card-body">       
-                                   <div class="col mb-5">
-                       
-                                       <div class="card h-100">
-                                           <div class="card-body p-4">
-                                               <div class="text-center">                                                   
-                                                   <h5 class="fw-bolder">{{donation.writer}}님의<br> 기부이야기</h5>
-                                                   {{donation.summary}}<br>
-                                               </div>
-                                           </div>
-                                           <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                               <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
-                                           </div>
-                                       </div>
-                                   </div>
-                               </div>
-                           </div> -->
-                           <div style="font-size: 20px; display: inline;">
+                           <div style="font-size: 20px; display: inline; float: left; border: 3px solid black; margin: 10px; padding: 0px 10px; border-radius: 5px;">
                             <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
                           </div>
-                          <hr>
                           {%endif%}
                         {%endfor%}
         
