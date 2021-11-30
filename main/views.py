@@ -6,6 +6,9 @@ from django.db.models import Count
 def showmain(request):
     return render(request,'main/main.html')
 
+def showmains(request):
+    return render(request,'main/mains.html')
+
 def faq(request):
     return render(request,'main/faq.html')
 
