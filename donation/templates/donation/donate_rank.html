@@ -3,6 +3,7 @@
 
 {% load static %}
 <style>
+    
 .stroy{
     float: left;
     margin: 30px 20px;
@@ -23,46 +24,45 @@
 
 <div class="accordion-1">
     <div class="col-lg-12">
+        <hr>
         <h2 class="h2-heading">12월 기부 TOP3</h2>
         <hr>
-        <section style="margin: 20px; margin-left: 35px; margin-top: 30px; text-align: center; justify-items: center;">
+        <section style="text-align: center; justify-items: center;">
         
             {%for object in max%}
-            <div style="display: inline; float: left; margin: 120px 150px;">
-                <h4>우수 기부자 : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
+            <div style="margin:0 auto;" >
+                <h4>우수 기부자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                 기부 머리 길이 : {{object.hair_length}}cm<br>
-                
             </div>
             {%endfor%}
         </section>
     </div>
     
 
-    <div class="col-lg-12" style="margin-bottom: 350px; text-align: center; justify-content: center;">
+    <div class="col-lg-12" style="text-align: center; justify-content: center;">
+        <hr>
         <h2 class="h2-heading">Best 사연</h2>
         <hr>
-        
-        <div class="flex-container" style="margin:20px; margin-left:35px; margin-top: 30px;">
-        
-            
+        <div class="flex-container" style="">
+
             {%for object in objects%}
-                <div class="stroy">
+                <div style="margin:0 auto;">
                     {%if object.beststory == 1%}
-                    <h4>우수 사연자 : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a><i class="fas fa-medal"></i></h4>
+                    <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                         {{object.body}}<br>
                     {%endif%}
                 </div>
             
 
-                <div class="stroy">
+                <div style="margin:0 auto;">
                     {%if object.beststory == 2%}
-                        <h4>우수 사연자 : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a><i class="fas fa-medal"></i></h4>
+                        <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</h4>
                         {{object.body}}<br>
                     {%endif%}
                 </div>
-                <div class="stroy">
+                <div style="margin:0 auto;">
                     {%if object.beststory == 3%}
-                    <h4>우수 사연자 : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a><i class="fas fa-medal"></i></h4>
+                    <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                         {{object.body}}<br>
                     {%endif%}
                 </div>
