@@ -6,13 +6,14 @@
 .donate_box
 {
   display: inline;
-  float: left; border: 3px solid rgb(212, 212, 212);
+  float: left; border: 3px solid rgb(230, 230, 230);
   margin: 10px; padding: 0px 10px;
   border-radius: 5px;
   font-size: 17px; 
   font-weight: 500;
   width: 30%;
-  padding: 10px;
+  padding-top: 10px;
+  height: 50%;
 }
       .first_a{
         border: 2px solid none;
@@ -383,8 +384,8 @@ a:hover{
                         {% for donation in my_donation %}
                           {%if donation.approved == True %}
                           
-                           <div class="donate_box" style="">
-                            <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}..</a>
+                           <div class="donate_box" style="display: inline;">
+                            <p>{{donation.summary}}..</p></a>
                             <div class="text-center"><a class="btn btn-outline-dark mt-auto" style="color: black;" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
                           </div>
                           {%endif%}
@@ -394,17 +395,17 @@ a:hover{
                           <hr>
                           {% for donation in my_donation %}
                             {%if donation.approved == False %}
-                                <div style="font-size: 20px; display: inline;">
-                                  <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
+                                <div class="donate_box">
+                                  <p>{{donation.summary}}..</p></a>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style="color: black;" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
                                 </div>
-                                <hr>
                             {%endif%}
                           {%endfor%}
                                 
         
                                 
                                 
-                        <hr/>
+                        
                       </div>
                       
                     </div>
