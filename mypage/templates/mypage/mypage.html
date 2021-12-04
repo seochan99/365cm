@@ -3,6 +3,17 @@
 
 {% load static %}
 <style>
+.donate_box
+{
+  display: inline;
+  float: left; border: 3px solid rgb(212, 212, 212);
+  margin: 10px; padding: 0px 10px;
+  border-radius: 5px;
+  font-size: 17px; 
+  font-weight: 500;
+  width: 30%;
+  padding: 10px;
+}
       .first_a{
         border: 2px solid none;
         background-color: rgb(158, 189, 255);
@@ -372,8 +383,9 @@ a:hover{
                         {% for donation in my_donation %}
                           {%if donation.approved == True %}
                           
-                           <div style="font-size: 20px; display: inline; float: left; border: 3px solid black; margin: 10px; padding: 0px 10px; border-radius: 5px;">
-                            <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
+                           <div class="donate_box" style="">
+                            <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}..</a>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style="color: black;" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
                           </div>
                           {%endif%}
                         {%endfor%}
