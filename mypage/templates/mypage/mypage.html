@@ -3,6 +3,18 @@
 
 {% load static %}
 <style>
+.donate_box
+{
+  display: inline;
+  float: left; border: 3px solid rgb(230, 230, 230);
+  margin: 10px; padding: 0px 10px;
+  border-radius: 5px;
+  font-size: 17px; 
+  font-weight: 500;
+  width: 30%;
+  padding-top: 10px;
+  height: 50%;
+}
       .first_a{
         border: 2px solid none;
         background-color: rgb(158, 189, 255);
@@ -303,7 +315,7 @@ a:hover{
             <!-- 배경이미지 -->
         </header>
         <main>
-          <div class="row">
+          <div class="row" >
             <div class="left col-lg-4">
 <!-- 이하 프로필 -->
 <!-- 프로필사진 -->
@@ -372,8 +384,9 @@ a:hover{
                         {% for donation in my_donation %}
                           {%if donation.approved == True %}
                           
-                           <div style="font-size: 20px; display: inline; float: left; border: 3px solid black; margin: 10px; padding: 0px 10px; border-radius: 5px;">
-                            <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
+                           <div class="donate_box" style="display: inline;">
+                            <p>{{donation.summary}}..</p></a>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style="color: black;" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
                           </div>
                           {%endif%}
                         {%endfor%}
@@ -382,17 +395,17 @@ a:hover{
                           <hr>
                           {% for donation in my_donation %}
                             {%if donation.approved == False %}
-                                <div style="font-size: 20px; display: inline;">
-                                  <a href="{%url 'donation:donate_detail' donation.id %}">{{donation.summary}}</a>
+                                <div class="donate_box">
+                                  <p>{{donation.summary}}..</p></a>
+                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" style="color: black;" href="{%url 'donation:donate_detail' donation.id %}">MORE</a></div>
                                 </div>
-                                <hr>
                             {%endif%}
                           {%endfor%}
                                 
         
                                 
                                 
-                        <hr/>
+                        
                       </div>
                       
                     </div>
