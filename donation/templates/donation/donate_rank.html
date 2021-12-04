@@ -3,7 +3,15 @@
 
 {% load static %}
 <style>
-    
+.win_box
+{
+    margin: 5px auto; 
+    padding: 20px; 
+    border: 3px solid rgb(255, 229, 191); 
+    width: 40%; 
+    border-radius: 10px;
+    border-width: 3px 2px 3px 35px;
+}    
 .stroy{
     float: left;
     margin: 30px 20px;
@@ -33,7 +41,7 @@
         <section style="text-align: center; justify-items: center;">
         
             {%for object in max%}
-            <div style="margin:0 auto; padding: 10px;" >
+            <div class="win_box">
                 <h4>우수 기부자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                 기부 머리 길이 : {{object.hair_length}}cm<br>
             </div>
@@ -52,30 +60,34 @@
         <div class="flex-container" style="">
 
             {%for object in objects%}
-                <div style="margin:0 auto; padding: 1px;">
+                <!-- <div style="margin:0 auto; padding: 1px;"> -->
                     {%if object.beststory == 1%}
+                    <div class="win_box">
                     <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                         {{object.body}}<br>
                         <a href="{%url 'donation:donate_detail' object.id %}">...게시글로 가기</a>
+                    </div>
                     {%endif%}
-                </div>
             
 
-                <div style="margin:0 auto; padding: 5px;">
-                    {%if object.beststory == 2%}
+                {%if object.beststory == 2%}
+                <div class="win_box">
                         <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                         {{object.body}}<br>
                         <a href="{%url 'donation:donate_detail' object.id %}">...게시글로 가기</a>
+                    </div>
                     {%endif%}
-                </div>
-                <div style="margin:0 auto; padding: 5px;">
+                
                     {%if object.beststory == 3%}
+                    <div class="win_box">
                     <h4>우수 사연자<i class="fas fa-medal"></i> : <a href="{% url 'mypage:mypage' object.writer.id %}">{{object.writer}}</a></h4>
                         {{object.body}}<br>
                         <a href="{%url 'donation:donate_detail' object.id %}">...게시글로 가기</a>
+                    </div>
                     {%endif%}
-                </div>
+                
             {%endfor%}
+            <br>
         </div>
     </div>
 {% endblock %}
