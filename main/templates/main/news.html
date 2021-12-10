@@ -20,8 +20,7 @@
                     <h6 class="section-title bg-white text-start text-primary pe-3">{{news.pub_date}}</h6>
                     <h3 class="mb-4">{{news.title}}</h3>
                     <p class="mb-4">{{news.summary}}...</p>
-                    
-                    <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'main:news_detail' news.id%}">더 보기</a>
+                    <a href="{% url 'main:news_detail' news.id %}" class="btn-solid-reg">더 보기</a>
                 </div>
         </div>
         <hr>
