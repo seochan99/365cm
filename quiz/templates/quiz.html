@@ -7,14 +7,41 @@
     margin: 30px;
     text-align: center;
   }
+
+  .status{
+    height: 20px;
+    width: 80%;
+    background-color: white;
+    border-radius: 20px;
+    margin-top: 10px;
+}
+.statusBar{
+    height: 100%;
+    /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fcfff4+0,dfe5d7+40,b3bead+100;Wax+3D+%233 */
+    /* colorzila에서 그라데이션 주기  */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fceabb+0,fccd4d+50,f8b500+51,fbdf93+100;Orange+3D+%235 */
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f6e6b4+0,ed9017+100;Yellow+3D+%231 */
+      background: #f6e6b4; /* Old browsers */
+      background: -moz-linear-gradient(top,  #f6e6b4 0%, #ed9017 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #f6e6b4 0%,#ed9017 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #f6e6b4 0%,#ed9017 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 ); /* IE6-9 */
+    border-radius: 20px;
+}
 </style>
 
 <section>
 <div class="accordion-1">
   <form action="{% url 'quiz:nextQuiz' select_id id %}" method="post">
     {%csrf_token%}
+    <div class="status mx-auto">
+      <div class="statusBar">
 
-    <div id="section" style="margin-top: 10px; padding: 10px; font-size: 20px; ">      
+      </div>
+    </div>
+
+    <div id="section" style="margin-top: 10px; padding: 10px; font-size: 20px; ">     
+
     </div>
 
 
@@ -31,6 +58,7 @@
 {% endif %}
 
 </section>
+
 <script>
   var section = document.getElementById('section');
   const param = window.location.href;
@@ -38,6 +66,8 @@
 
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
+
+    
 
     if (response.status === 200) {
       let data = await response.json();
@@ -58,6 +88,15 @@
         section.appendChild(label);
         section.appendChild(br);
       }
+      var status = document.querySelector('.statusBar');
+      if(id<10){
+        status.style.width = (100/10)*(id)+'%';
+      }
+      else{
+        status.style.width = 100+'%';
+      }
+        
+
     }
   }
   fetchQuiz();
