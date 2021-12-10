@@ -28,6 +28,10 @@
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 ); /* IE6-9 */
     border-radius: 20px;
 }
+label {
+  cursor: pointer;
+  border: 1px solid black;
+}
 </style>
 
 <section>
@@ -42,10 +46,7 @@
 
     <div id="section" style="margin-top: 10px; padding: 10px; font-size: 20px; ">     
 
-    </div>
-
-
-    <input type="submit" value="다음"  style="padding: 10px 40px; border: none; background-color: rgb(255, 222, 160); border-radius: 10px;"/>  
+    </div> 
   </form>
 </div>
 
@@ -66,9 +67,6 @@
 
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
-
-    
-
     if (response.status === 200) {
       let data = await response.json();
       var title = document.createElement('h2');
@@ -78,11 +76,14 @@
       var list = data[0]['body'].split('/');
       for (var i=0; i < list.length; i++){
         var body = document.createElement('input');
-        body.setAttribute("type", "radio");
+        body.setAttribute("type", "submit");
         body.setAttribute("name", "quiz");
+        body.setAttribute("style", "display: none;");
+        body.setAttribute("id", i);
         body.setAttribute("value", i);
         section.appendChild(body);
         var label = document.createElement('label');
+        label.setAttribute("for", i);
         var br = document.createElement('br');
         label.innerHTML = "&nbsp" + list[i];
         section.appendChild(label);
