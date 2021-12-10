@@ -78,7 +78,7 @@
             {%csrf_token%}
             <p class="titleBox">기부할 머리길이 : <input type="number" name="hair_length" min="25"></p>
             <p class="titleBox">모발상태 : 
-                <input type="radio" name="hair_condition" value="상(염색&탈색X, 파마X)">상(염색&탈색X, 파마X)
+                <input type="radio" name="hair_condition" value="상(염색&탈색X, 파마X)" required>상(염색&탈색X, 파마X)
                  <input type="radio" name="hair_condition" value="중(염색&탈색X, 파마O)">중(염색&탈색X, 파마O)
                 <input type="radio" name="hair_condition" value="하(염색&탈색O)">하(염색&탈색O)</p>
             <p class="titleBox">사진 <input type="file" name="image" > </p>
