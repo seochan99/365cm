@@ -50,3 +50,7 @@ def delete_comment(request, news_id, comment_id):
     comment = get_object_or_404(Comments, pk=comment_id)
     comment.delete()
     return redirect('main:news_detail', news_id)
+
+def mainnews(request):
+    newss=News.objects.all()
+    return render(request,'main/main.html',{'newss':newss})
