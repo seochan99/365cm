@@ -10,6 +10,7 @@ class Quiz(models.Model):
 
 class Result(models.Model):
   id = models.AutoField(primary_key=True)
+  flag = models.CharField(null = True, max_length=100)
   result_score = models.IntegerField(null = True)
   description = models.CharField(max_length=300)
 
