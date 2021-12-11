@@ -26,23 +26,24 @@
   <section>
   <h1>365cm 테스트 결과</h1><br>
   {% if select.score %}
-  <img style="width: 20vw; height:30vw" src="{% static 'images/happy.png' %}">
+  <img style="width: 10vw; height:20vw" src="{% static 'images/happy.png' %}">
   {% else %}
   <img style="width: 30vw; height:24vw" src="{% static 'images/sad.png' %}">
   {% endif %}
   
-  <h3>당신의 점수는 {{ select.score }}점 입니다!</h3>
+  <h3 style="margin: 30px 0px;">당신의 점수는 {{ select.score }}점 입니다!</h3>
 
 <div>
-  <h5 style="font-weight: 500;"> {{ result.description }}<br></h5>
+  <h5 style="font-weight: 500; margin: 40px 0px;"> {{ result.description }}<br></h5>
 </div>
-365cm는 모발 기부외에도 다양한 소식들을 전달해드릴 예정이니 많은 이용부탁드려요 !
+
+<h6 style="margin: 10px 0px;">365cm는 모발 기부외에도 다양한 소식들을 전달해드릴 예정이니 많은 이용부탁드려요 !</h6>
     <div class="text-left"><a class="btn btn-outline-dark mt-auto" style="color: #ff6d2a;" href="">지금 기부하러 가기</a></div>
     <div class="text-right"><a class="btn btn-outline-dark mt-auto" style="color: #ff6d2a;" href="">365에 대해 더 알아보기</a></div>
-  <h5>365cm외의 소아암 환자관련 사이트</h5>
-      <p>후원금 기부 및 다양한 소식들을 접할 수 있는 한국백혈병소아암협회 : <a href="https://soaam.or.kr/">https://soaam.or.kr/</a><br>
-      후원금 기부 및 캠페인에 참여할 수 있는 한국백혈병어린이재단 : <a href="https://www.kclf.org/">https://www.kclf.org/<br></a>
-      헌혈기부 및 후원금 기부가 가능한 어머나운동본부 : <a href="http://www.givehair.net/">http://www.givehair.net/</a></p>
+  <h6>365cm외의 소아암 환자관련 사이트</h6>
+      <p>후원금 기부 및 다양한 소식들을 접할 수 있는 한국백혈병소아암협회 : <a target="_blank" href="https://soaam.or.kr/">https://soaam.or.kr/</a><br>
+      후원금 기부 및 캠페인에 참여할 수 있는 한국백혈병어린이재단 : <a target="_blank" href="https://www.kclf.org/">https://www.kclf.org/<br></a>
+      헌혈기부 및 후원금 기부가 가능한 어머나운동본부 : <a target="_blank" href="http://www.givehair.net/">http://www.givehair.net/</a></p>
 
 
       
