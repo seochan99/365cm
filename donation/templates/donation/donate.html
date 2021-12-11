@@ -92,8 +92,8 @@
         background: #ffffff; 
         box-shadow: 1px 2px 10px rgba(0,0,0,0.2);  
         margin-left: 5px;
+        
     }
-    
 
     .heading-info{
         font-weight: 10px;
@@ -103,6 +103,7 @@
     .donation-card{
         display: contents;
         box-shadow: 1px 2px 10px rgb(0 0 0 / 20%);
+        
     }
 
     .d-card-body{
@@ -156,8 +157,7 @@
     }
 
 
-
-   
+    
     
 </style>
 
@@ -192,10 +192,13 @@
     
                     <div class="card h-100">
                         <!-- 상태표시 -->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: rgba(255, 161, 73, 0.774);">
-                            {%if donation.approved == True%} 승인완료
-                            {%else%} 승인대기
-                            {%endif%}</div>
+                        {%if donation.approved == True%}
+                        <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: lightsalmon;">
+                             승인완료</div>
+                             {%else%}
+                        <div class="badge text-white position-absolute" style="top: 0.5rem; right: 0.5rem; background-color: rgb(128, 240, 128);">
+                             승인대기</div>
+                            {%endif%}
                         <!-- Product image-->
                         {% if donation.image %}
                         <div class="donation-iamge"  ><img class="card-img-top"  src="{{ donation.image.url }}"  alt="사진 나올 곳"></div><br>

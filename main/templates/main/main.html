@@ -2,6 +2,40 @@
 {% block content %}
 
 {% load static %}
+<style>
+  .d-progress-bar{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:10%;
+    margin: 0;
+  }
+
+  .progress{
+    background-color: #e9e7e7;
+    border-radius: 20px;
+    height: 40px;
+    width: 60%;
+    
+  }
+
+  .progress-done{
+    background: linear-gradient(to left,  rgb(255, 133, 63),rgb(242, 92, 5));
+    box-shadow: 0 3px 3px -5px rgb(242, 92, 5), 0 2px 5px rgb(242, 92, 5);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 36%;
+    font-size:1.0rem;
+    
+  }
+
+  
+
+</style>
+
 
 <body data-bs-spy="scroll" data-bs-target="#navbarExample">
   <!-- Header -->
@@ -10,26 +44,22 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="text-container">
-            <h1 class="h1-large">
-              <span class="">
-                365cm<br>
-              </span>
+            <h1 class="h1-large" style="font-weight:800;">
+                <a style="color:rgb(242, 92, 5)">365</a>cm<br>
             </h1>
             <h3>: 소아암 환자들을 위한 모발 기부 서비스</h3><br>
             <p class="p-large">
-              365cm는 소아암 어린이를 위한 당신의 모발 기부를 돕습니다. <br>
-              당신의 소중한 머리카락이 소아암 어린이에게 따뜻한 희망으로 전해지도록, <br>
-              일 년 365일 언제든 기부를 받겠습니다. <br><br>
-              365cm의 모발이 모이면 기부자를 향한 감사의 선물이 전달됩니다.
+              <a style="color:rgb(242, 92, 5); font-weight:bold;">365</a>cm는 소아암 어린이를 위한 당신의 모발 기부를 돕습니다. <br>
+              당신의 소중한 머리카락이 소아암 어린이에게<br> 따뜻한 희망으로 전해지도록, <br>
+              일 년  <a style="color:rgb(242, 92, 5); font-weight:bold;">365</a>일 언제든 기부를 받겠습니다. <br><br>
+              <a style="color:rgb(242, 92, 5); font-weight:bold;">365</a>cm의 모발이 모이면 기부자를 향한 감사의 선물이 전달됩니다.
             </p>
             <!-- <a class="btn-solid-lg" href="#">dd</a> -->
-            <a 
-              href="{% url 'main:faq' %}"
-              class="btn-solid-reg"
-              
-              
-            >
+            <a href="{% url 'main:faq' %}" class="btn-solid-reg" style="margin-right:5%">
               FAQ 바로가기
+            </a>
+            <a href="{% url 'quiz:mainQuiz' %}" class="btn-solid-reg">
+              테스트 바로가기
             </a>
           </div>
           <!-- end of text-container -->
@@ -61,7 +91,7 @@
       <div class="row">
         <div class="col-lg-12">
           <h2 class="h2-heading">
-           365cm 페이지 소개
+           365cm 페이지
           </h2>
         </div>
         <!-- end of col -->
@@ -128,16 +158,28 @@
   <!-- end of services -->
 
     <!-- 기부현황 시작-->
-    <div class="basic-3">
+    <div class="basic-3" style="background-color:#fff2dc;">
       <div class="container">
         <div class="row">
           <div class="col-lg-12">
-            <h4>
-              기부 현황
-              <hr>
-              ---------------------(110/365cm)
+            
+            
+            <h4 style="color: black;">
+              기부 현황<br><br>
+              <div class="d-progress-bar">
+              <div class="progress">
+                <div class="progress-done" data-done="70">
+                  134cm
+                </div>
+              </div>
+              <br>
+              </div>
             </h4>
-            <a class="btn-outline-lg page-scroll" href="{% url 'donation:donate' %}">
+              <h5 style="color: black;"><a style="color:rgb(242, 92, 5)">365</a>cm 까지 <a style="color:rgb(242, 92, 5)">231</a>cm 남았어요!</h5><br>
+              
+            
+            
+            <a class="btn-outline-lg page-scroll" href="{% url 'donation:donate' %}" style="color:black; border-color: black;">
               기부에 동참하러 가기 
             </a>
           </div>
@@ -158,12 +200,15 @@
         <div class="col-lg-6 col-xl-5">
           <div class="text-container">
             <h2>
-              여러분의 소중한 모발이<br> 소아암 환자에게 전달됐습니다
+              여러분의 소중한 모발이<br> 
+              소아암 환자에게 전달되었습니다
             </h2>
             <p>
-              2022년 2월 28일(월) 365cm를 통해 기부해주신 197명의 모발이<br>
-              가발로 제작되어 익명의 소아암 환우에게 전달되었습니다.<br>
-              여러분의 따뜻한 손길과 함께 더욱 노력하는 365cm가 되겠습니다.
+              2021년 12월 11일 토요일,<br>
+              365cm를 통해 기부해주신 197명의 모발이<br> 
+              가발로 제작되어 익명의 소아암 환우에게 전달되었습니다.<br><br>
+              여러분의 따뜻한 손길과 함께<br> 
+              더욱 노력하는 365cm가 되겠습니다.
             </p>
           </div>
           <!-- end of text-container -->
@@ -276,60 +321,7 @@
   <!-- end of modal -->
   <!-- end of details modal -->
 
-  <!-- Details 2 -->
-  <div class="basic-2">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6">
-          <div class="image-container">
-            <img
-              class="img-fluid"
-              src="static/images/details-2.png"
-              alt="alternative"
-            />
-          </div>
-          <!-- end of image-container -->
-        </div>
-        <!-- end of col -->
-        <div class="col-lg-6">
-          <div class="text-container">
-            <h2>기부현황</h2>
-            <p>
-              Velit dictum non proin egestas convallis nunc, eu auctor massa.
-              Nam hendrerit, eros ut viverra lobortis, mauris nisi porta risus,
-              placerat dignissim tellus auctor masse
-            </p>
-            <ul class="list-unstyled li-space-lg">
-              <li class="d-flex">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  Fusce ipsum augue, ultrices rutrum est accel, pulvin
-                </div>
-              </li>
-              <li class="d-flex">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  Fermentum elit. Vestibulum cursuso bibendum viverra
-                </div>
-              </li>
-              <li class="d-flex">
-                <i class="fas fa-square"></i>
-                <div class="flex-grow-1">
-                  Quisque blandit pulvinar metus, eu sta malesuada
-                </div>
-              </li>
-            </ul>
-          </div>
-          <!-- end of text-container -->
-        </div>
-        <!-- end of col -->
-      </div>
-      <!-- end of row -->
-    </div>
-    <!-- end of container -->
-  </div>
-  <!-- end of basic-2 -->
-  <!-- end of details 2 -->
+ 
 
   <!-- Testimonials -->
   <section class="py-5 mb-5">
