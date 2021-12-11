@@ -106,14 +106,15 @@ label:hover, label:focus{
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
     var status = document.querySelector('.statusBar');
-
+    
     if(id<10)
     {
         status.style.width = (100/10)*(id)+'%';
     }
-      else{
+    else
+    {
         status.style.width = 100+'%';
-      }
+    }
     if (response.status === 200) {
       let data = await response.json();
       var title = document.createElement('h2');
