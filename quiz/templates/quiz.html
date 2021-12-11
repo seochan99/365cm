@@ -3,6 +3,7 @@
 {% load static %}
 
 <style>
+  /* 에니메이션 넣기 */
   section{
     margin: 30px;
     text-align: center;
@@ -13,7 +14,9 @@
     width: 80%;
     background-color: white;
     border-radius: 20px;
-    margin-top: 10px;
+    margin: 10px 0px;
+    margin-bottom: 30px;
+    
 }
 .statusBar{
     height: 100%;
@@ -22,9 +25,9 @@
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fceabb+0,fccd4d+50,f8b500+51,fbdf93+100;Orange+3D+%235 */
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f6e6b4+0,ed9017+100;Yellow+3D+%231 */
       background: #f6e6b4; /* Old browsers */
-      background: -moz-linear-gradient(top,  #f6e6b4 0%, #ed9017 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top,  #f6e6b4 0%,#ed9017 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom,  #f6e6b4 0%,#ed9017 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: -moz-linear-gradient(top,  #f6e6b4 0%, rgb(255, 187, 110) 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #f6e6b4 0%,rgb(255, 187, 110) 100%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom,  #f6e6b4 0%,rgb(255, 187, 110) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 ); /* IE6-9 */
     border-radius: 20px;
 }
@@ -43,6 +46,7 @@ label:hover, label:focus{
     color: whitesmoke;
     font-size: 20px;
 }
+
 </style>
 
 <section>
@@ -75,18 +79,34 @@ label:hover, label:focus{
   var section = document.getElementById('section');
   const param = window.location.href;
   var id = param.slice(-2, -1) === '0' ? 12 : param.slice(-2, -1);
-
+    
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
+    var status = document.querySelector('.statusBar');
+    
+    
+    if(id<10)
+    {
+        status.style.width = (100/10)*(id)+'%';
+    }
+    else
+    {
+        status.style.width = 100+'%';
+    }
     if (response.status === 200) {
+      
       let data = await response.json();
       var title = document.createElement('h2');
       title.innerHTML = data[0]['title'];
+      var br1 = document.createElement('br');
       section.appendChild(title);
-
+      section.appendChild(br1);
       var list = data[0]['body'].split('/');
+
       for (var i=0; i < list.length; i++){
+        var br = document.createElement('br');
         var body = document.createElement('input');
+        
         body.setAttribute("type", "submit");
         body.setAttribute("name", "quiz");
         body.setAttribute("style", "display: none;");
@@ -95,19 +115,12 @@ label:hover, label:focus{
         section.appendChild(body);
         var label = document.createElement('label');
         label.setAttribute("for", i);
-        var br = document.createElement('br');
         label.innerHTML = "&nbsp" + list[i];
         section.appendChild(label);
         section.appendChild(br);
       }
-      var status = document.querySelector('.statusBar');
-      if(id<10){
-        status.style.width = (100/10)*(id)+'%';
-      }
-      else{
-        status.style.width = 100+'%';
-      }
-        
+
+
 
     }
   }
