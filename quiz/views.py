@@ -43,9 +43,17 @@ def resultQuiz(request, select_id):
   for result_id in range(1, 5):
     result_high = get_object_or_404(Result, pk=result_id)
     result_low = get_object_or_404(Result, pk=result_id+1)
+    context = {
+      'select' : select,
+      'result' : result_low
+    }
+    
     if result_low.result_score < select.score < result_high.result_score:
-      return render(request, 'quiz_result.html', { 'select' : select, 'result' : result_low })
+      return render(request, 'quiz_result.html', context)
     elif select.score <= 69:
       result_low = get_object_or_404(Result, pk=5)
-      return render(request, 'quiz_result.html', { 'select' : select, 'result' : result_low })
-  return render(request, 'quiz_result.html', { 'select' : select})
+      context = {
+        'select' : select,
+        'result' : result_low
+      }
+      return render(request, 'quiz_result.html', context)
