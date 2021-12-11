@@ -25,11 +25,7 @@
   <div class="container">
   <section>
   <h1>365cm 테스트 결과</h1><br>
-  {% if result.flag == True %}
   <img style="width: 10vw; height:20vw" src="{% static 'images/happy.png' %}">
-  {% else %}
-  <img style="width: 30vw; height:24vw" src="{% static 'images/sad.png' %}">
-  {% endif %}
   
   <h3 style="margin: 30px 0px;">당신의 점수는 {{ select.score }}점 입니다!</h3>
 
