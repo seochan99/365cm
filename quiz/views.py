@@ -49,11 +49,11 @@ def resultQuiz(request, select_id):
     }
     
     if result_low.result_score < select.score < result_high.result_score:
-      return render(request, 'quiz_result.html', context)
+      return render(request, 'quiz_result_happy.html', context)
     elif select.score <= 69:
       result_low = get_object_or_404(Result, pk=5)
       context = {
         'select' : select,
         'result' : result_low
       }
-      return render(request, 'quiz_result.html', context)
+      return render(request, 'quiz_result_sad.html', context)
