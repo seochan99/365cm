@@ -32,8 +32,12 @@ def nextQuiz(request, select_id, id):
       select.score += int(now_score)
       select.save()
     if id == 13:
-      return render(request, 'quiz_result.html', { 'select' : select })
+      return redirect('quiz:resultQuiz', select_id)
     else:
       return redirect('quiz:selectQuiz', select_id, id)
   messages.warning(request, "적어도 하나의 답변을 선택해주세요.")
   return render(request, 'quiz.html', {'select_id': select_id, 'id' : id})
+
+def resultQuiz(request, select_id):
+  select = get_object_or_404(Select, pk=select_id)
+  return render(request, 'quiz_result.html', { 'select' : select })

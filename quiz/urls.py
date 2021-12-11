@@ -7,4 +7,5 @@ urlpatterns = [
   path('<int:id>/', viewQuiz, name='viewQuiz'),
   path('select/<int:select_id>/<int:id>/', selectQuiz, name='selectQuiz'),
   path('select/next/<int:select_id>/<int:id>/', nextQuiz, name='nextQuiz'),
+  path('select/result/<int:select_id>/', resultQuiz, name='resultQuiz'),
 ]
