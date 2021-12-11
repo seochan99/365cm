@@ -25,12 +25,14 @@
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#fceabb+0,fccd4d+50,f8b500+51,fbdf93+100;Orange+3D+%235 */
 /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#f6e6b4+0,ed9017+100;Yellow+3D+%231 */
       background: #f6e6b4; /* Old browsers */
-      background: -moz-linear-gradient(top,  #f6e6b4 0%, rgb(255, 187, 110) 100%); /* FF3.6-15 */
-      background: -webkit-linear-gradient(top,  #f6e6b4 0%,rgb(255, 187, 110) 100%); /* Chrome10-25,Safari5.1-6 */
-      background: linear-gradient(to bottom,  #f6e6b4 0%,rgb(255, 187, 110) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      background: -moz-linear-gradient(top,  #f6e6b4 0%, #ed9017 100%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top,  #f6e6b4 0%,#ed9017 100%); /*Chrome10-25,Safari5.1-6*/
+      background: linear-gradient(to left,  #f6e6b4 0%,#ed9017 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f6e6b4', endColorstr='#ed9017',GradientType=0 ); /* IE6-9 */
     border-radius: 20px;
+    width: 100%;
 }
+
 label {
   margin-left: 25%;
   width: 50%;
@@ -51,6 +53,7 @@ label:hover, label:focus{
 
 <section>
 <div class="accordion-1">
+  <div class="container">
   <form action="{% url 'quiz:nextQuiz' select_id id %}" method="post">
     {%csrf_token%}
     <div class="status mx-auto">
@@ -60,9 +63,10 @@ label:hover, label:focus{
     </div>
 
     <div id="section" style="margin-top: 10px; padding: 10px; font-size: 20px; ">     
-
+      
     </div> 
   </form>
+  </div>
 </div>
 
 {% if messages %}

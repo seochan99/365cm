@@ -40,4 +40,12 @@ def nextQuiz(request, select_id, id):
 
 def resultQuiz(request, select_id):
   select = get_object_or_404(Select, pk=select_id)
-  return render(request, 'quiz_result.html', { 'select' : select })
+  for result_id in range(1, 5):
+    result_high = get_object_or_404(Result, pk=result_id)
+    result_low = get_object_or_404(Result, pk=result_id+1)
+    if result_low.result_score < select.score < result_high.result_score:
+      return render(request, 'quiz_result.html', { 'select' : select, 'result' : result_low })
+    elif select.score <= 69:
+      result_low = get_object_or_404(Result, pk=5)
+      return render(request, 'quiz_result.html', { 'select' : select, 'result' : result_low })
+  return render(request, 'quiz_result.html', { 'select' : select})
