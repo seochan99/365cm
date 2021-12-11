@@ -4,31 +4,6 @@
 
 <style>
   /* 에니메이션 넣기 */
-
-@keyframes fadeIn{
-    from{ opacity: 0;}
-    to {opacity: 1;}
-}
-@keyframes fadeOut{
-    from{ opacityt: 1;}
-    to {opacity: 0;}
-}
-@-webkit-keyframes fadeIn{
-    from{ opacity: 0;}
-    to {opacity: 1;}
-}
-@-webkit-keyframes fadeOut{
-    from{ opacityt: 1;}
-    to {opacity: 0;}
-}
-.fadeIn{
-    animation: fadeIn;
-    animation-duration: 1s;
-}
-.fadeOut{
-    animation: fadeOut;
-    animation-duration: 1s;
-}
   section{
     margin: 30px;
     text-align: center;
@@ -39,7 +14,9 @@
     width: 80%;
     background-color: white;
     border-radius: 20px;
-    margin-top: 10px;
+    margin: 10px 0px;
+    margin-bottom: 30px;
+    
 }
 .statusBar{
     height: 100%;
@@ -102,10 +79,11 @@ label:hover, label:focus{
   var section = document.getElementById('section');
   const param = window.location.href;
   var id = param.slice(-2, -1) === '0' ? 12 : param.slice(-2, -1);
-
+    
   async function fetchQuiz(){
     let response = await fetch(`/quiz/${id}/?format=json`);
     var status = document.querySelector('.statusBar');
+    
     
     if(id<10)
     {
@@ -116,14 +94,19 @@ label:hover, label:focus{
         status.style.width = 100+'%';
     }
     if (response.status === 200) {
+      
       let data = await response.json();
       var title = document.createElement('h2');
       title.innerHTML = data[0]['title'];
+      var br1 = document.createElement('br');
       section.appendChild(title);
-
+      section.appendChild(br1);
       var list = data[0]['body'].split('/');
+
       for (var i=0; i < list.length; i++){
+        var br = document.createElement('br');
         var body = document.createElement('input');
+        
         body.setAttribute("type", "submit");
         body.setAttribute("name", "quiz");
         body.setAttribute("style", "display: none;");
@@ -132,11 +115,11 @@ label:hover, label:focus{
         section.appendChild(body);
         var label = document.createElement('label');
         label.setAttribute("for", i);
-        var br = document.createElement('br');
         label.innerHTML = "&nbsp" + list[i];
         section.appendChild(label);
         section.appendChild(br);
       }
+
 
 
     }
