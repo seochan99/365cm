@@ -1,80 +1,63 @@
-# 365cm
+# 🩵365cm : 소아암 환자를 위한 프로젝트
+**프로젝트 설명**: ### 프로젝트 소개
+소아암 환자를 위한 프로젝트 블라브
 
-`2021 동국대 Farm 경진대회` 365commit의 공모작입니다.
+### 주요 기능
+소아암 환자를 위한 프로젝트 블라브
 
-[1. 소개](#Intro)  
-[2. 설치 및 가동](#Install)  
-[3. 팀원 소개](#Team)  
+### 기술적 특징
+소아암 환자를 위한 프로젝트 블라브
 
-# Intro
-### 🤝 프로젝트 배경
-소아암환자는 늘고있지만 소아암환자를 위한 가발 제작협회나 기업등등은 줄어 소아암 환자를 위한 가발 용 모발 수급이 어려운 것을 발견했습니다.
-이러한 상황에서 소아암 환자를 위한 모발 기부에 대해 사람들이 관심을 키우고, 모발을 기부할 수 있는지에 대한 자가 테스트와 함께 기부하는 글을 확인할 수 있는 웹 서비스 제작을 생각하게 되었습니다. 
-### ⚙️ 개발환경 
-* Framework : `Django 3.2.9`, `Rest Framework 3.12.4`
-* Language : `Python3.9`
-* OS : `MacOS`, `Window11`
-* Database : `SQLite3`
-* IDE : `VSCode`
+### 프로젝트 구조
+소아암 환자를 위한 프로젝트 블라브
 
-# Install
-1. 터미널에 아래 내용 입력
+## 🚀 소개
+### 프로젝트 소개
+소아암 환자를 위한 프로젝트 블라브
 
-```
-git clone https://github.com/Seulg2027/365cm.git
-```
+### 주요 기능
+소아암 환자를 위한 프로젝트 블라브
 
-2. 가상환경 켜기
+### 기술적 특징
+소아암 환자를 위한 프로젝트 블라브
 
-```
-pipenv shell
-```
+### 프로젝트 구조
+소아암 환자를 위한 프로젝트 블라브
 
-3. Django 설치
+## 🛠️ 기술 스택
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white) ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) ![Swift](https://img.shields.io/badge/Swift-33421?style=for-the-badge&logo=swift&logoColor=white) 
 
-```
-pip install django
-```
+| **Category** | **Stack** |
+|:------------:|:----------:|
+| Front-end | `TypeScript` |
+| Uncategorized | `CSS3`, `Swift` |
 
-4. Django-allauth 설치
 
-```
-pip install django-allauth
+## 💻 설치 방법
+1. 저장소 복제
+```bash
+git clone [레포지토리 URL]
+cd [프로젝트명]
 ```
 
-5. Pillow 설치
-
-```
-pip install pillow
-```
-
-6. rest_framework 설치
-```
-pip install djangorestframework
+2. 가상환경 생성 및 활성화
+```bash
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
 ```
 
-7. 모델의 변경내용 DB 스키마에 적용하기 위해 마이그레이션 생성
-
-```
-python manage.py makemigrations
-```
-
-8. DB에 마이그레이션 적용
-
-```
-python manage.py migrate
-```
-9. 슈퍼유저 생성
-```
-python manage.py createsuperuser
+3. 의존성 설치
+```bash
+pip install -r requirements.txt
 ```
 
-10. 실행
-
+4. 애플리케이션 실행
+```bash
+python main.py
 ```
-python manage.py runserver
-```
 
-# Team
-### 팀명 : 365commit
-<img src="static/images/Teamintro.png">
+## 👥 팀원
+| **Name** | **Position** |
+|:--------:|:------------:|
+| **서희찬** | `Frontend` |
+
